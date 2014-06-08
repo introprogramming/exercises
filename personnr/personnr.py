@@ -51,7 +51,7 @@ def check(str):
         return (False, 'Error in date')
 
     if not number_is_correct(cleaned):
-        return (False, 'Error in numer')
+        return (False, 'Error in number')
 
     return (True, 'Congratulations, the number is correct')
 
