@@ -6,7 +6,6 @@ import datetime
 ## Functions
 
 def clean(string):
-    ix  = 0
     list = []
     for char in string:
         if char != '-' and char != ' ':
@@ -17,7 +16,7 @@ def date_is_correct(pnr):
     string = ''
     for i in pnr[2:6] :
         string = string + str(i)
-    #print string
+
     try:
         datetime.datetime.strptime(string, '%m%d')
     except ValueError:
@@ -36,12 +35,10 @@ def number_is_correct(pnr):
         else :
             factor = 2
 
-    #print c
-    return c%10==0
+    return c % 10 == 0
 
 def check(str):
     cleaned = clean(pnr)
-    print cleaned
 
     L = len(cleaned)
     if L != 10:
@@ -59,10 +56,10 @@ def check(str):
 ## Main
 
 pnr = "811218-9876"
-#print sys.argv
-if len(sys.argv)>1:
+
+if len(sys.argv) > 1:
     pnr = sys.argv[1]
-else :
+else:
     print "Uses default number: ", pnr
 
 a = check(pnr)
