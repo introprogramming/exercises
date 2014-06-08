@@ -13,7 +13,7 @@ def clean(string):
             list = list + [int(char)]
     return list
 
-def dateCorrect(pnr):
+def date_is_correct(pnr):
     string = ''
     for i in pnr[2:6] :
         string = string + str(i)
@@ -24,7 +24,7 @@ def dateCorrect(pnr):
         return False
     return True
 
-def numberCorrect(pnr):
+def number_is_correct(pnr):
     factor = 2
     c = 0
     for x in pnr :
@@ -47,10 +47,10 @@ def check(str):
     if L!=10:
         return (False, 'Wrong number of elements')
 
-    if not dateCorrect(cleaned):
+    if not date_is_correct(cleaned):
         return (False, 'Error in date')
 
-    if not numberCorrect(cleaned):
+    if not number_is_correct(cleaned):
         return (False, 'Error in numer')
 
     return (True, 'Congratulations, the number is correct')
@@ -68,4 +68,3 @@ else :
 a = check(pnr)
 
 print a[1]
-
