@@ -44,8 +44,8 @@ def check(str):
     print cleaned
 
     L = len(cleaned)
-    if L!=10:
-        return (False, 'Wrong number of elements')
+    if L != 10:
+        return (False, 'The personal number must include ten digits')
 
     if not date_is_correct(cleaned):
         return (False, 'Error in date')
