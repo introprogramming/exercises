@@ -21,6 +21,7 @@ Checklist:
 - [Learn Python the Hard Way](http://learnpythonthehardway.org/)
 - [Learnpython.org](http://www.learnpython.org/)
 - [Codecademy: Python Track](http://www.codecademy.com/tracks/python)
+- [Style guide](http://legacy.python.org/dev/peps/pep-0008/)
 
 ### Misc
 
