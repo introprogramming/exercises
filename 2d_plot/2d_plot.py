@@ -3,7 +3,7 @@ import math, pygame
 from pygame.locals import *
 
 #############################################
-## Standard colors
+## Standard colors (RGB)
 BLACK = ( 20,  20,  40)
 WHITE = (255, 255, 255)
 BLUE =  (  0,   0, 255)
@@ -11,26 +11,34 @@ GREEN = (  0, 255,   0)
 RED =   (255,   0,   0)
 
 #############################################
-## Customize plot
-background_color = BLACK
-plot_color = GREEN
-grid_color = WHITE
+## Customize plot here
 
+def function_to_print(x):
+    """Write function to plot here.
+    Must take a single number x and return a single number y."""
+    return -x*(x-3)
+
+#Range of window
 X_MIN = 0.0
 X_MAX = 10.0
 Y_MIN = -10.0
 Y_MAX = 10.0
 
+#Tick interval on axes
 X_TICK = 2.0
 Y_TICK = 2.0
 
+#Granularity of plotted functions, more points -> higher resolution plot
 N_POINTS = 100
 
-def function_to_print(x):
-    return -x*(x-3)
-    
+#Colors
+background_color = BLACK
+plot_color = GREEN
+grid_color = WHITE
+
 # Note, it is also possible to make a list of functions to print
-# and respective colors
+# and respective colors:
+# functions = [(f1, color1), (f2, color2), ...]
 
 #############################################
 ## Let the program calculate the rest
@@ -64,12 +72,10 @@ def linspace(x0, x1, points):
     with constant intervals between `x0` and `x1`"""
     delta = (x1-x0)/(points-1)
     return map(lambda(x): x0 + delta*x, range(points))
-    
+
 def curve_coordinates2(f, x0, x1, points):
-    """Alternative implementation of curve_coordinates(...) above
-    
-    This is more compact and functional-like but probably slower."""
-    
+    """(Alternative implementation):
+    This is more compact and functional-like."""
     return [ [x, f(x)] for x in linspace(x0,x1,points)]
 
 def draw_ticks(screen, axis):
@@ -117,7 +123,8 @@ def draw_ticks(screen, axis):
         pygame.draw.line(screen, grid_color, s, e, 2)
     
 def draw_x_ticks(screen):
-    """Draws appropriate ticks on the X-axis."""
+    """(Alternative implementation):
+    Draws appropriate ticks on the X-axis."""
     start = X_MIN + X_MIN % X_TICK
     end = X_MAX - X_MAX % X_TICK
     points = (end-start)/X_TICK + 1
@@ -141,7 +148,8 @@ def draw_x_ticks(screen):
             2)
 
 def draw_y_ticks(screen):
-    """Draws appropriate ticks on the Y-axis.
+    """(Alternative implementation):
+    Draws appropriate ticks on the Y-axis.
     This function mirrors draw_x_ticks(...)"""
     start = Y_MIN + Y_MIN % Y_TICK
     end = Y_MAX - Y_MAX % Y_TICK
@@ -166,36 +174,45 @@ def draw_y_ticks(screen):
             [b, v[1]],\
             2)
 
+def draw(screen, pp):
+    #Function
+    pygame.draw.lines(screen, plot_color, False, pp, 3)
+    
+    ## Alternative implementations:
+    #draw_x_ticks(screen)
+    #draw_y_ticks(screen)
+    
+    draw_ticks(screen, 0)
+    draw_ticks(screen, 1)
+    
+    #X-Axis
+    pygame.draw.lines(screen, grid_color, False, map(coordinate_to_position,\
+        [[X_MIN, 0],[X_MAX, 0]]), 2)
+        
+    #Y-Axis
+    pygame.draw.lines(screen, grid_color, False, map(coordinate_to_position,\
+        [[0, Y_MIN],[0, Y_MAX]]), 2)
+
 def main():
+    """Graphics: draws graphs on window and await EXIT or ESCAPE."""
     pygame.init()
     screen = pygame.display.set_mode([WIDTH, HEIGHT])
     pygame.display.set_caption('mini birds')
+    
+    clock = pygame.time.Clock()
 
     screen.fill(background_color)
     
     cc = curve_coordinates(function_to_print, X_MIN, X_MAX, N_POINTS)
     pp = map(coordinate_to_position, cc)
+    
+    #This would typically be done inside the loop, but since it is never
+    #updated: might as well keep it outside
+    draw(screen, pp)
 
     done = False
     while not done:
-        #Function
-        pygame.draw.lines(screen, plot_color, False, pp, 3)
-        
-        ## Alternative implementations:
-        #draw_x_ticks(screen)
-        #draw_y_ticks(screen)
-        
-        draw_ticks(screen, 0)
-        draw_ticks(screen, 1)
-        
-        #X-Axis
-        pygame.draw.lines(screen, grid_color, False, map(coordinate_to_position,\
-            [[X_MIN, 0],[X_MAX, 0]]), 2)
-            
-        #Y-Axis
-        pygame.draw.lines(screen, grid_color, False, map(coordinate_to_position,\
-            [[0, Y_MIN],[0, Y_MAX]]), 2)
-
+        time = clock.tick(60)
         pygame.display.update()
         for e in pygame.event.get():
             if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
