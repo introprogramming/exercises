@@ -55,7 +55,7 @@ def check(str):
     
     Checks if a social security number is valid by checking date and control number
     """
-    cleaned = clean(pnr)
+    cleaned = clean(str)
 
     if len(cleaned) != 10:
         return (False, 'The personal number must include ten digits')
