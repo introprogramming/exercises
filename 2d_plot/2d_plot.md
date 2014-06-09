@@ -5,3 +5,5 @@ Medium-advanced exercise with math and graphics. Requires [pygame](http://www.py
 Plots a function in 2d. Can customize colors, tick marks on axes, range etc (in code). Tick marks are overkill but works. Currently only plots a single function, can be updated to plot many. Reading and parsing mathematical expressions are considered out of scope.
 
 Good exercise for converting between a model coordinate system (real numbers) and a graphical coordinate system (pixels).
+
+Btw, tick marks also support non-integer values (such as 2.5).

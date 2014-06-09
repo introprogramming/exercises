@@ -25,8 +25,8 @@ Y_MIN = -10.0
 Y_MAX = 10.0
 
 #Tick interval on axes
-X_TICK = 2.0
-Y_TICK = 2.0
+X_TICK = 2.5
+Y_TICK = 2.5
 
 #Granularity of plotted functions, more points -> higher resolution plot
 N_POINTS = 100
