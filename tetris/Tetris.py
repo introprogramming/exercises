@@ -15,53 +15,53 @@ TICK_TIME = 0.5 # Seconds per tick
 
 # Initiating the window
 pygame.init()
-screenSize = (BLOCK_SIZE * WIDTH, BLOCK_SIZE * HEIGHT)
-screen = pygame.display.set_mode(screenSize)
+screen_size = (BLOCK_SIZE * WIDTH, BLOCK_SIZE * HEIGHT)
+screen = pygame.display.set_mode(screen_size)
 pygame.display.set_caption(TITLE)
 
 # Initiating the clock
 clock = pygame.time.Clock()
 ticks = 0
-bypassTicks = False
+bypass_ticks = False
 
 # Initiating matrix for block positions
 blocks = [[0 for i in range(WIDTH)] for j in range(HEIGHT)]
 
 # Creating the first Tetris object
-currentObject = TetrisObject()
+current_object = TetrisObject()
 
 ################
 ## Functions
 
-def removeCompleteRows(blocks):
+def remove_complete_rows(blocks):
     """Removes all completed rows and
     adds empty rows at the top"""
     
-    newBlocks = blocks
-    for y in range(len(newBlocks)):
-        rowComplete = True
+    new_blocks = blocks
+    for y in range(len(new_blocks)):
+        row_complete = True
         #If an empty space is found in the row it is not complete
-        for x in range(len(newBlocks[y])):
-            if not newBlocks[y][x]:
-                rowComplete = False
-        if rowComplete:
+        for x in range(len(new_blocks[y])):
+            if not new_blocks[y][x]:
+                row_complete = False
+        if row_complete:
             # If it is complete, add an empty row at top and move down the rows
-            newBlocks = [[0 for i in range(WIDTH)]] + newBlocks[0:y] + newBlocks[y+1:]
-    return newBlocks
+            new_blocks = [[0 for i in range(WIDTH)]] + new_blocks[0:y] + new_blocks[y+1:]
+    return new_blocks
 
 def draw():
     """Clears and draws objects to the screen"""
 
     screen.fill(WHITE)
 
-    objectPos = currentObject.getPos()
+    object_pos = current_object.get_pos()
     
     # Draw the Tetris object
-    for i in range(len(objectPos)):
+    for i in range(len(object_pos)):
         pygame.draw.rect(screen,
-                         currentObject.color,
-                        [objectPos[i][0] * BLOCK_SIZE,
-                         objectPos[i][1] * BLOCK_SIZE,
+                         current_object.color,
+                        [object_pos[i][0] * BLOCK_SIZE,
+                         object_pos[i][1] * BLOCK_SIZE,
                          BLOCK_SIZE,
                          BLOCK_SIZE], 0)
     
@@ -77,11 +77,11 @@ def draw():
                                  BLOCK_SIZE], 0)
     
 
-def handleInput():
+def handle_input():
     """Handles the input"""
     
     # Global variables that might be changed
-    global bypassTicks
+    global bypass_ticks
     global running
 
     for event in pygame.event.get():
@@ -89,49 +89,49 @@ def handleInput():
             running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                currentObject.moveX(-1, blocks)
+                current_object.move_x(-1, blocks)
             elif event.key == pygame.K_RIGHT:
-                currentObject.moveX(1, blocks)
+                current_object.move_x(1, blocks)
             elif event.key == pygame.K_DOWN:
-                bypassTicks = True
+                bypass_ticks = True
             elif event.key == pygame.K_UP:
-                currentObject.rotate(blocks)
+                current_object.rotate(blocks)
     
 def update():
     """Updates the game logic"""
 
     # Global variables that might be changed
-    global bypassTicks
+    global bypass_ticks
     global ticks
-    global currentObject
+    global current_object
     global blocks
     global running
     
     # If it is  time to move the current object downward
-    if bypassTicks or ticks >= UPDATES_PER_SEC * TICK_TIME:
+    if bypass_ticks or ticks >= UPDATES_PER_SEC * TICK_TIME:
         # If moving is not successful (collision)
-        if not currentObject.moveY(blocks):
+        if not current_object.move_y(blocks):
             # Stop "fast-forward"
-            bypassTicks = False
+            bypass_ticks = False
             
-            objectPos = currentObject.getPos()
+            object_pos = current_object.get_pos()
             
             # For every block occupied by the Tetris object, mark it
-            for i in range(len(objectPos)):
-                blocks[objectPos[i][1]][objectPos[i][0]] = 1
+            for i in range(len(object_pos)):
+                blocks[object_pos[i][1]][object_pos[i][0]] = 1
                
             # Create a new Tetris object
-            currentObject = TetrisObject()
+            current_object = TetrisObject()
             
-            objectPos = currentObject.getPos()
+            object_pos = current_object.get_pos()
             # Check if the new object is obstructed by marked positions, if it is
             # the game is over
-            for i in range(len(objectPos)):
-                if blocks[objectPos[i][1]][objectPos[i][0]]:
+            for i in range(len(object_pos)):
+                if blocks[object_pos[i][1]][object_pos[i][0]]:
                     running = False
                     
             # Remove completed rows
-            blocks = removeCompleteRows(blocks)
+            blocks = remove_complete_rows(blocks)
         ticks = 0
         
 # Start the game
@@ -142,7 +142,7 @@ running = True
 
 while running:
     # Handle logic
-    handleInput()
+    handle_input()
     update()
     
     # Draw to the screen

@@ -52,7 +52,7 @@ class TetrisObject:
                           ((1,1),(1,2),(2,1),(2,2)))
             self.color = (0, 0, 0)
         
-    def getPos(self):
+    def get_pos(self):
         """Returns a tuple of the position of the shape's 4 blocks"""
     
         return ((self.shape[self.rotation][0][0] + self.x, self.shape[self.rotation][0][1] + self.y),
@@ -65,34 +65,34 @@ class TetrisObject:
         shape after rotation is at a valid position."""
         
         
-        newShape = self.shape[(self.rotation + 1) % len(self.shape)]
+        new_shape = self.shape[(self.rotation + 1) % len(self.shape)]
         
-        for i in range(len(newShape)):
-            if newShape[i][0] + self.x < 0 or newShape[i][1] + self.x >= len(blocks[0]) or blocks[newShape[i][1] + self.y][newShape[i][0] + self.x]:
+        for i in range(len(new_shape)):
+            if new_shape[i][0] + self.x < 0 or new_shape[i][1] + self.x >= len(blocks[0]) or blocks[new_shape[i][1] + self.y][new_shape[i][0] + self.x]:
                 return
                 
         self.rotation = (self.rotation + 1) % len(self.shape)
             
-    def moveX(self, dx, blocks):
+    def move_x(self, dx, blocks):
         """Moves this object to the left (negative dx),
         or to the right (positive dx) if possible"""
         
         # If the new position won't be valid set dx to 0
         for i in range(len(self.shape[self.rotation])):
-            if self.getPos()[i][0] + dx < 0 or self.getPos()[i][0] + dx >= len(blocks[0]) or blocks[self.getPos()[i][1]][self.getPos()[i][0] + dx]:
+            if self.get_pos()[i][0] + dx < 0 or self.get_pos()[i][0] + dx >= len(blocks[0]) or blocks[self.get_pos()[i][1]][self.get_pos()[i][0] + dx]:
                 dx = 0
         
         # Update the position
         self.x += dx
             
-    def moveY(self, blocks):
+    def move_y(self, blocks):
         """Moves this object downwards if possible.
         Returns True if it was successfully moved,
         False otherwise"""
         
         # If the new position is not valid, return False
         for i in range(len(self.shape[self.rotation])):
-            if self.getPos()[i][1] + 1 >= len(blocks) or blocks[self.getPos()[i][1]+ 1][self.getPos()[i][0]]:
+            if self.get_pos()[i][1] + 1 >= len(blocks) or blocks[self.get_pos()[i][1]+ 1][self.get_pos()[i][0]]:
                 return False
                 
         # Update the position and return True when finished
