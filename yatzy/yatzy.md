@@ -11,6 +11,7 @@ Minimal yatzy - endast grundregler. Kan lägga till regler för kåk, fyrtal, bo
 
 ## Utbyggnad
 * Implementera andra poängregler som kåk, stege etc.
+* Grafisk ASCII representation av tärningar.
 
 ## Externa bibliotek
 * (inga)
