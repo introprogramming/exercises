@@ -29,12 +29,8 @@ dice_graph['1_top']['6'] = "|o   o|"
 dice_graph['2_mid']['6'] = "|o   o|"
 dice_graph['3_bot']['6'] = "|o   o|"
 
-def print_d(n):
-    print dice_graph['1_top'][n]
-    print dice_graph['2_mid'][n]
-    print dice_graph['3_bot'][n]
-
 def print_dice(list):
+    """Display ASCII representation of a list of dice (integers)"""
     spacing = "  "
     
     string = ""
@@ -43,10 +39,7 @@ def print_dice(list):
     print string
     
     for key in dice_graph.values():
-        #print key
         string = ""
         for ix in list:
             string += key[str(ix)] + spacing
         print string
-    
-#print_dice([1, 1, 5, 4, 1])
