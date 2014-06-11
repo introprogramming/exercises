@@ -63,14 +63,13 @@ def play_turn(player_name, score):
             continue
         
         keep = string_to_digit_list(raw_input("Which dice do you want to keep? (Can keep any or all, type numbers)\n\t"))
-        print "keep: "+str(keep)
         
         check = {}
         for ix in keep:
             if str(ix) in check:
                 #attempt cheating
                 print "Cannot pick the same dice more than once! "
-                print str(ix) + "Has already been picked"
+                print str(ix) + " has already been picked."
                 continue
                 
             check[str(ix)] = 0
