@@ -1,6 +1,10 @@
 
 import sys, random
 
+#Note - this implementation is not optimal at all but demonstrates how it could be done. Feel free to suggest improvements or alternative implementations.
+
+#arguments: yatzy.py <num_players=2> <num_turns=6>
+
 TOTAL_DICE = 5
 
 def read_name(ix):
@@ -149,7 +153,7 @@ def game():
     if len(sys.argv) > 1:
         num_players = int(sys.argv[1])
     
-    turn = 1
+    turn = 6
     if len(sys.argv) > 2:
         turn = int(sys.argv[2])
     
