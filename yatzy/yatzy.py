@@ -1,5 +1,5 @@
 
-import sys, random
+import sys, random, dice_graphic
 
 #Note - this implementation is not optimal at all but demonstrates how it could be done. Feel free to suggest improvements or alternative implementations.
 
@@ -35,13 +35,6 @@ def string_to_digit_list(string):
     """
     return map(int, list(string.replace(" ", "")))
 
-def print_dice(dice):
-    """Prints a list of integers (a list of dice)"""
-    string = "\t"
-    for d in dice:
-        string += str(d) + " "
-    print string
-
 def play_turn(player_name, score):
     """A player's turn:
         1. Throw dice
@@ -62,10 +55,8 @@ def play_turn(player_name, score):
     dice = []
     while t > 0:
         t = t-1
-        print "kept: " +str(kept)
-        print "dice to throw: " +str(dice_to_throw)
         dice = kept + throw_dice(dice_to_throw)
-        print_dice(dice)
+        dice_graphic.print_dice(dice)
         
         # No more choices
         if t == 0:
@@ -90,7 +81,7 @@ def play_turn(player_name, score):
             break
         
     print "Finally:"
-    print_dice(dice)
+    dice_graphic.print_dice(dice)
     
     choice = -1
     while choice < 1 or choice > 6:
