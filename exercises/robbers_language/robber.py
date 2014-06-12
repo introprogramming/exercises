@@ -1,15 +1,27 @@
 import sys
+import os
+import mimetypes
 
 # Helpers
 
 CONSONANTS = "qwrtpsdfghjklzxcvbnm"
 SUFFIX = 'o'
 
-def is_path(input):
-  return
+def is_valid_file(input):
+  # Educational moment: Learn how use google to find about
+  # Python's built in helpers for validating a path for a file
+  # and checking the file type.
+  return os.path.isfile(input) and mimetypes.guess_type(input)[0] == "text/plain"
 
 def file_contents_from(path):
-  return
+  try:
+    f = open(path)
+    return f.read()
+  except IOError as e:
+    print "I/O error({0}): {1}".format(e.errno, e.strerror)
+    return False
+  else:
+    f.close()
 
 # Logic
 
@@ -42,7 +54,7 @@ def main():
   if len(sys.argv):
     input = sys.argv[1]
 
-    out = translate(file_contents_from(input)) if is_path(input) else translate(input)
+    out = translate(file_contents_from(input)) if is_valid_file(input) else translate(input)
 
     print out
 
