@@ -36,13 +36,16 @@ Skriv ett program som översätter från svenska till rövarspråket!
 4. Ett program som gör allt ovanstående på samma gång! Dvs. beroende på argument till programmet ska den bete sig olika. **Svårighetsgrad 2**.
 
   ```bash
+  # Med enkelt ord som argument
   python robber.py Johan
   JoJohohanon
+  # Inget argument
   python robber.py
   Hi! What do you want to translate?
   > Johan
   The translation is:
   JoJohohanon
+  # Sökväg till textfil som argument
   python robbery.py svensk_fil.txt
   <Translation here .. >
   ```
