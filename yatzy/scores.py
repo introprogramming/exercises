@@ -28,7 +28,8 @@ def print_scores(players, score):
         sum_string += "\t" + str(score[player]['sum'])
 
 def number_points(n, dice):
-    """Rule for ordinary number scores: ex all 5"""
+    """Rule for ordinary number scores: ex all 5.
+    Returns the `n` number score for these `dice`."""
     points = 0
     for ix in dice:
         if ix == n:
@@ -38,9 +39,6 @@ def number_points(n, dice):
     else:
         print "Better luck next time, you got " + str(points) + " points"
     return points
-
-def chans_points(dice):
-    return sum(dice)
     
 score_model = {\
     '1': (lambda(d): number_points(1, d)),\
@@ -49,7 +47,7 @@ score_model = {\
     '4': (lambda(d): number_points(4, d)),\
     '5': (lambda(d): number_points(5, d)),\
     '6': (lambda(d): number_points(6, d)),\
-    'chans':chans_points}
+    'chans':sum}
 
 def points_of(dice, player_score):
     """Decides which score to use and updates scoreboard.
@@ -72,8 +70,8 @@ def points_of(dice, player_score):
             print "Already used " + choice
             choice = '-1'
             continue
-        
-    #points = number_points(int(choice), dice)
+    
+    #Evaluate function pointer
     points = score_model[choice](dice)
     player_score[choice] = points
 
