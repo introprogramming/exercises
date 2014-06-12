@@ -7,6 +7,8 @@ import sys, random, dice_graphic
 
 TOTAL_DICE = 5
 
+score_model = {'1':0, '2':0, '3':0, '4':0, '5':0, '6':0, 'triss':0}
+
 def read_name(ix):
     """Reads player name from CLI, returns string."""
     return raw_input( "What is your name (Player" + str(ix) + ")?\n\t")
@@ -113,12 +115,11 @@ def print_scores(players, score):
         score[player]['sum'] = 0
     print name_string
     
-    n = 1
-    while n < 7:
-        string = str(n) + ":"
+    for key in score_model.keys():
+        string = key + ":"
         for player in players:
-            if str(n) in score[player]:
-                part_score = score[player][str(n)]
+            if key in score[player]:
+                part_score = score[player][key]
                 string += "\t" + str(part_score)
             else:
                 part_score = 0
@@ -127,7 +128,6 @@ def print_scores(players, score):
             score[player]['sum'] += part_score
         
         print string
-        n = n+1
     
     sum_string = "Sum:"
     for player in players:
