@@ -1,3 +1,13 @@
+#
+# Robber's Language translator for Swedish words
+#
+# Usage:
+#
+# python robber.py [word|path to text file]
+#
+# Intentionally long source for educational purposes.
+#
+
 import sys
 import os
 import mimetypes
