@@ -1,13 +1,11 @@
 
-import sys, random, dice_graphic
+import sys, random, dice_graphic, scores
 
 #Note - this implementation is not optimal at all but demonstrates how it could be done. Feel free to suggest improvements or alternative implementations.
 
 #arguments: yatzy.py <num_players=2> <num_turns=6>
 
 TOTAL_DICE = 5
-
-score_model = {'1':0, '2':0, '3':0, '4':0, '5':0, '6':0, 'triss':0}
 
 def read_name(ix):
     """Reads player name from CLI, returns string."""
@@ -80,58 +78,12 @@ def play_turn(player_name, score):
         
         if dice_to_throw <= 0:
             break
-        
+    
     print "Finally:"
     dice_graphic.print_dice(dice)
-    
-    choice = -1
-    while choice < 1 or choice > 6:
-        print "Which number do you want to use (1-6)?"
-        print "You have already used:" + used
-        
-        choice = int(raw_input("\t"))
-        if str(choice) in score[player_name]:
-            print "Already used "+str(choice)
-            choice = -1
-            continue
-        
-        points = 0
-        for ix in dice:
-            if ix == choice:
-                points += choice
-        score[player_name][str(choice)] = points
-        if points/choice > 2:
-            print "Well done, you got " + str(points) + " points"
-        else:
-            print "Better luck next time, you got " + str(points) + " points"
+    scores.points_of(dice, score[player_name])
 
-def print_scores(players, score):
-    """Print the entire scoreboard and sum of points"""
-    #There is probably a much better way of doing this
-    
-    name_string = "  "
-    for player in players:
-        name_string += "\t" + player
-        score[player]['sum'] = 0
-    print name_string
-    
-    for key in score_model.keys():
-        string = key + ":"
-        for player in players:
-            if key in score[player]:
-                part_score = score[player][key]
-                string += "\t" + str(part_score)
-            else:
-                part_score = 0
-                string += "\t-"
-            
-            score[player]['sum'] += part_score
-        
-        print string
-    
-    sum_string = "Sum:"
-    for player in players:
-        sum_string += "\t" + str(score[player]['sum'])
+
 
 
 def game():
@@ -158,7 +110,7 @@ def game():
         turn = turn - 1
     
     print "\n-------------------------"
-    print_scores(players, scoreboard)
+    scores.print_scores(players, scoreboard)
 
 # Main
 game()
