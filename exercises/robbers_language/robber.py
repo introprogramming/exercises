@@ -5,6 +5,8 @@
 #
 # python robber.py [word|path to text file]
 #
+# Run without arguments to start an interactive CLI.
+#
 # Intentionally long source for educational purposes.
 #
 
@@ -58,10 +60,17 @@ def add_suffix_if_token(input, tokens):
   return input+SUFFIX+input if input in tokens else input
 
 def cli():
-  return
+  input = _read_input()
+
+  while input != "exit":
+    print translate(input)
+    input = _read_input()
+
+def _read_input():
+  return raw_input("Enter Swedish text: ")
 
 def main():
-  if len(sys.argv):
+  if len(sys.argv) == 2 and sys.argv[1] != "":
     input = sys.argv[1]
 
     out = translate(file_contents_from(input)) if is_valid_file(input) else translate(input)
