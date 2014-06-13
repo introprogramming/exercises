@@ -1,15 +1,15 @@
 # Palindrome
-Gör ett program som kan bedömma om ett ord är en palindrom och som kan räkna antalet palindromer i en textfil.
+GÃ¶r ett program som kan bedÃ¶mma om ett ord Ã¤r en palindrom och som kan rÃ¤kna antalet palindromer i en textfil.
 
-**Svårighetsgrad:** 2
+**SvÃ¥righetsgrad:** 2
 
 ## Delmoment
-1. Skapa en funktion som givet en sträng bedömmer om strängen är en palindrom. **Svårighetsgrad 1.**
-2. Gör så att programmet kontinuerligt körs och givet input from terminalen skriver ut om input är en palindrom. **Svårighetsgrad 1.**
-3. Gör en funktion som rensar en sträng från onödiga tecken. **Svårighetsgrad 1.**
-4. Gör en funktion som givet en längre sträng räknar hur många palindromer som finns i strängen. **Svårighetsgrad 1.**
-5. Gör en funktion som läser en textfil och skriver ut hur många palindromer som finns i textfilen. **Svårighetsgrad 2.**
-6. Gör så att man väljer mellan läsa input- och läsa textfilläge när man startar programmet. **Svårighetsgrad 2.**
+1. Skapa en funktion som givet en strÃ¤ng bedÃ¶mmer om strÃ¤ngen Ã¤r en palindrom. **SvÃ¥righetsgrad 1.**
+2. GÃ¶r sÃ¥ att programmet kontinuerligt kÃ¶rs och givet input from terminalen skriver ut om input Ã¤r en palindrom. **SvÃ¥righetsgrad 1.**
+3. GÃ¶r en funktion som rensar en strÃ¤ng frÃ¥n onÃ¶diga tecken. **SvÃ¥righetsgrad 1.**
+4. GÃ¶r en funktion som givet en lÃ¤ngre strÃ¤ng rÃ¤knar hur mÃ¥nga palindromer som finns i strÃ¤ngen. **SvÃ¥righetsgrad 1.**
+5. GÃ¶r en funktion som lÃ¤ser en textfil och skriver ut hur mÃ¥nga palindromer som finns i textfilen. **SvÃ¥righetsgrad 2.**
+6. GÃ¶r sÃ¥ att man vÃ¤ljer mellan lÃ¤sa input- och lÃ¤sa textfillÃ¤ge nÃ¤r man startar programmet. **SvÃ¥righetsgrad 2.**
 
 ```bash
 python palindrome.py
