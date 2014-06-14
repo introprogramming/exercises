@@ -174,7 +174,7 @@ def draw_y_ticks(screen):
             [b, v[1]],\
             2)
 
-def draw(screen, pp):
+def draw(screen, pp, plot_color):
     #Function
     pygame.draw.lines(screen, plot_color, False, pp, 3)
     
@@ -208,7 +208,7 @@ def main():
     
     #This would typically be done inside the loop, but since it is never
     #updated: might as well keep it outside
-    draw(screen, pp)
+    draw(screen, pp, plot_color)
 
     done = False
     while not done:

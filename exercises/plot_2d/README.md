@@ -1,4 +1,4 @@
-#2d plot
+#Plot 2d
 
 Skriv en grafritare som kan rita en funktion y = f(x) i två dimensioner över ett givet intervall. Till exempel, rita `3*sin(x)-x` över 0<x<2pi.
 
