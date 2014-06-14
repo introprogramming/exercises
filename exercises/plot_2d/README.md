@@ -1,6 +1,6 @@
 #Plot 2d
 
-Skriv en grafritare som kan rita en funktion y = f(x) i två dimensioner över ett givet intervall. Till exempel, rita `3*sin(x)-x` över 0<x<2pi.
+Skriv en grafritare som kan rita en funktion `y = f(x)` i två dimensioner över ett givet intervall. Till exempel, rita `3*sin(x)-x` över `0<x<2pi`.
 
 - Svårighetsgrad: 3
 
@@ -16,7 +16,7 @@ Skriv en grafritare som kan rita en funktion y = f(x) i två dimensioner över e
 - Anpassa så att fönstret går från `x_min < x < x_max` istället för `0 < x < 10`. Observera att `x_min` respektive `y_min` såväl som `x_max` och `y_max` kan vara negativa. **Svårighetsgrad 3**.
 - Rita ut koordinat-axlarna. **Svårighetsgrad 2**.
 - Rita rutnät eller markeringar på koordinat-axlarna. **Svårighetsgrad 3**.
-- Låt användaren ange `n` funktioner som ska ritas. **Svårighetsgrad 3**.
+- Låt användaren ange `n` funktioner, med respektive färg, som ska ritas. **Svårighetsgrad 3**.
 
 ## Externa bibliotek:
 - [pygame](http://www.pygame.org/news.html)
