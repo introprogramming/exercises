@@ -41,7 +41,7 @@ def file_contents_from(path):
 # Logic
 
 def translate(string):
-  '''Core translation algorithm.
+  '''Core translation.
 
   >>> translate('johan')
   'jojohohanon'
@@ -61,7 +61,7 @@ def add_suffix_if_consonant(input):
   >>> add_suffix_if_consonant('a')
   'a'
   '''
-  return input+SUFFIX+input if is_consonant(input) else input
+  return input+SUFFIX+input.lower() if is_consonant(input) else input
 
 def cli():
   input = _read_input()
