@@ -5,7 +5,7 @@ Implementera följande enkela spel mellan två spelare: det finns `N` pinnar och
 - Svårighetsgrad: 1
 
 ## Moment
-0. Slumpa antalet ett antal pinnar mellan 15 och 25. **Svårighetsgrad 1**.
+0. Slumpa antalet pinnar mellan 15 och 25. **Svårighetsgrad 1**.
 1. Skapa en loop som växlar tur så länge som det finns pinnar kvar. **Svårighetsgrad 1**.
 2. I varje iteration: skriv ut antalet pinnar kvar och låt spelaren välja att avlägsna 1 eller 2 pinnar. **Svårighetsgrad 1**.
 3. Spelaren som tar den sista pinnen vinner. **Svårighetsgrad 1**.
