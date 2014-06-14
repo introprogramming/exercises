@@ -197,7 +197,7 @@ def main():
     """Graphics: draws graphs on window and await EXIT or ESCAPE."""
     pygame.init()
     screen = pygame.display.set_mode([WIDTH, HEIGHT])
-    pygame.display.set_caption('mini birds')
+    pygame.display.set_caption('Plot 2d')
     
     clock = pygame.time.Clock()
 
