@@ -175,9 +175,12 @@ def draw_y_ticks(screen):
             2)
 
 def draw(screen, pp, plot_color):
+    """Plots the points `pp` on the specified screen with the specified color."""
     #Function
     pygame.draw.lines(screen, plot_color, False, pp, 3)
-    
+
+def draw_axis(screen):
+    """Draws the axis and ticks of the coordinate system."""
     ## Alternative implementations:
     #draw_x_ticks(screen)
     #draw_y_ticks(screen)
@@ -209,6 +212,7 @@ def main():
     #This would typically be done inside the loop, but since it is never
     #updated: might as well keep it outside
     draw(screen, pp, plot_color)
+    draw_axis(screen)
 
     done = False
     while not done:

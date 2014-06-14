@@ -17,7 +17,7 @@ CYAN  = ( 50, 255, 255)
 ## Customize plot here
 
 def functions_to_print():
-    """Write list of functions to plot here of the format [f_info1, f_info2, ...], where f_info == (f, colour).
+    """Write list of functions to plot here of the format [f_info1, f_info2, ...], where f_info == (f, color).
     Each function `f` must take a single number x and return a single number y."""
     return [\
             (lambda(x): -x*(x-3),            GREEN),\
@@ -32,7 +32,7 @@ def functions_to_print():
 def plot_fun( f_info, X_MIN, X_MAX, N_POINTS, screen):
     """Plots a function `f` with the specified settings.
     
-    f_info == (f, colour)"""
+    f_info == (f, color)"""
     cc = plot_2d.curve_coordinates(f_info[0], X_MIN, X_MAX, N_POINTS)
     pp = map(plot_2d.coordinate_to_position, cc)
     plot_2d.draw(screen, pp, f_info[1])
@@ -49,6 +49,7 @@ def main():
     
     map(lambda(f): plot_fun(f, plot_2d.X_MIN, plot_2d.X_MAX, plot_2d.N_POINTS, screen),\
         functions_to_print())
+    plot_2d.draw_axis(screen)
 
     done = False
     while not done:
