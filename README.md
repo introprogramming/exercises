@@ -8,8 +8,8 @@ En ny övning ska finnas i en egen mapp under `exercises` med ett beskrivande na
 
 En övning måste minst innehålla:
 
-- En fil med körbar Python-källkod (lösning på övningen)
-- En `README`-fil i valfritt format (förslagsvis `.md` (Markdown) eller `.txt`)
+- En fil med körbar Python-källkod (föreslagen lösning på övningen)
+- En `README`-fil i [Markdown](http://github.github.com/github-flavored-markdown/) (som `.md`)
 
 `README`-filen bör ha följande struktur:
 
@@ -24,6 +24,10 @@ En övning måste minst innehålla:
     1. <Moment 1>, <svårighetsgrad>
     2. <Moment 2>, <svårighetsgrad>
     3. etc.
+    
+    ## Utbyggnad
+    
+    <Förslag på ytterligare utbyggnad>.
 
     ## Externa bibliotek
 
@@ -37,6 +41,10 @@ Svårighetsgrad 1 motsvarar övningar som även nybörjare ska kunna klara, 2 f�
 ### Delmoment
 
 Att spela upp en ljudfil är tokenkelt - att t.ex. bygga ett GUI med visualisering betydligt knepigare (gissar jag). Vilka extra-moment kan vi föreslå för uppgifterna, och hur svåra är de att implementera?
+
+### Utbyggnad
+
+Är lösningen expanderbar? Hur kan elevent göra den till sin och bygga vidare mer egna idéer?
 
 ### Externa bibliotek
 
