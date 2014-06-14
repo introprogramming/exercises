@@ -19,6 +19,9 @@ import mimetypes
 CONSONANTS = "qwrtpsdfghjklzxcvbnm"
 SUFFIX = 'o'
 
+def is_consonant(char):
+  return char.lower() in CONSONANTS.lower()
+
 def is_valid_file(input):
   # Educational moment: Learn how use google to find about
   # Python's built in helpers for validating a path for a file
@@ -43,21 +46,22 @@ def translate(string):
   >>> translate('johan')
   'jojohohanon'
   '''
-  tokens = list(CONSONANTS)
   output = ""
 
   for char in list(string):
-    output += add_suffix_if_token(char, tokens)
+    output += add_suffix_if_consonant(char)
 
   return output
 
-def add_suffix_if_token(input, tokens):
-  '''Adds a suffix if input exists in tokens
+def add_suffix_if_consonant(input):
+  '''Adds a suffix if input is consonant
 
-  >>> add_suffix_if_token('j', list(CONSONANTS))
+  >>> add_suffix_if_consonant('j')
   'joj'
+  >>> add_suffix_if_consonant('a')
+  'a'
   '''
-  return input+SUFFIX+input if input in tokens else input
+  return input+SUFFIX+input if is_consonant(input) else input
 
 def cli():
   input = _read_input()
