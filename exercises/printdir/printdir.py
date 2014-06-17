@@ -21,7 +21,7 @@ def dir_print_contents(path):
         print root + os.sep
         for file in files:
             print "\t"+file+"\t", getsize(join(root, file)), "bytes"
-        
+
 def main():
     """Prints contents of directory with specified path."""
     path = "."
