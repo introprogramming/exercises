@@ -1,7 +1,8 @@
 
 import pygame, os.path, math
 
-resource_path = "resources"+os.path.sep
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+resource_path = main_dir+os.path.sep+"resources"+os.path.sep
 
 def norm(x, y):
     return math.sqrt(x**2 + y**2)
@@ -27,10 +28,8 @@ class GraphObject(pygame.sprite.Sprite):
         self.rect.y = y
         
     def update(self, time):
-        print time
         self.rect.x = (time*self.vx + self.rect.x)%GraphObject.board_width
         self.rect.y = (time*self.vy + self.rect.y)%GraphObject.board_height
-        print self.rect.x, self.rect.y
 
 class Character(GraphObject):
     
