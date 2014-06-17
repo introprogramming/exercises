@@ -2,8 +2,11 @@
 import sys
 import os
 from os.path import isdir, getsize, join
+import re
 
-"""Alternative implementation that uses string.format and manual recursion."""
+"""Alternative implementation that uses string.format and manual recursion.
+
+Also contains regex support"""
 
 def file_size(root, file):
     """Simply returns the file size of the `file` in directory `root`"""
@@ -29,7 +32,7 @@ def str_format(path, size):
     """Formats output of name and size of files and directories."""
     return "{0:<24} {1}".format(path, size_to_str(size))
     
-def recurse_print(path, prefix):
+def recurse_print(path, prefix, file_reg, dir_reg):
     """Returns (printable_string, [sum_bytes, data]).
     
     Path = path to search in.
@@ -47,36 +50,80 @@ def recurse_print(path, prefix):
     for f in os.listdir(path):
         f_path = join(path, f)
         if isdir(f_path):
-            (string, [f_size, sub_list]) = recurse_print(f_path, prefix+"    ")
+            if not dir_reg.search(f) :
+                print "Dir regex didn't match", f
+                continue
+            
+            (string, [f_size, sub_list]) = recurse_print(f_path, prefix+"    ", file_reg, dir_reg)
             complete_list += [(f, f_size, sub_list)]
             
             complete_string += "\n\n" + prefix + str_format(f + os.path.sep, f_size)
             complete_string += prefix+string
         else :
+            if not file_reg.search(f) :
+                print "File regex didn't match", f
+                continue
             f_size = file_size(path, f)
-            sumsize += f_size
             complete_list.append((f, f_size))
             
             complete_string += "\n" + prefix + str_format(f, f_size)
-            
+        sumsize += f_size
     
     return (complete_string, [sumsize, complete_list])
 
-def dir_print_contents(path):
+def dir_print_contents(path, file_reg, dir_reg):
     """Prints contents of a directory recursively.
     
     This implementation uses function recursion."""
-    (string, [sumsize, sub_list]) = recurse_print(path, "")
+    (string, [sumsize, sub_list]) = recurse_print(path, "", file_reg, dir_reg)
+    print str_format(path + os.path.sep, sumsize)
     print string
+
+def experiment():
+    reg = re.compile("txt$")
+    strings = ["a.txt", "a", "txt", ".txt", "c.a.txt.a"]
+    
+    for s in strings:
+        if reg.search(s):
+            print "Matches", s
+        else:
+            print "No match", s
+    
+    
     
 def main():
-    """Prints contents of directory with specified path."""
+    """Prints contents of directory of specified path.
+    
+    Options:
+    -f [file_regex]
+    -r [dir_regex]"""
     
     path = "."
+    
+    #Can specify default regex here, also reads regex from program arguments.
+    file_reg = "^(?!README)"
+    dir_reg = "^(?!.git)"
+    
     if len(sys.argv)>1:
         path = sys.argv[1]
     
-    print "In ", path, ":"
-    dir_print_contents(path)
+    ix = 2
+    while ix < len(sys.argv):
+        flag = sys.argv[ix]
+        if flag == '-f':
+            file_reg = sys.argv[ix+1]
+            ix =  ix+1
+        elif flag == '-r':
+            dir_reg = sys.argv[ix+1]
+            ix =  ix+1
+        ix = ix+1
+    
+    print "File reg: " + repr(file_reg)
+    print "Dir reg: " + repr(dir_reg)
+    
+    print "\nIn ", path, ":"
+    dir_print_contents(path, re.compile(file_reg), re.compile(dir_reg))
 
 main()
+
+#experiment()
