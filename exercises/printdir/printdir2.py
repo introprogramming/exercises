@@ -6,7 +6,7 @@ import re
 
 """Alternative implementation that uses string.format and manual recursion.
 
-Also contains regex support"""
+Also supports regex for files and directories."""
 
 def file_size(root, file):
     """Simply returns the file size of the `file` in directory `root`"""
@@ -76,10 +76,11 @@ def dir_print_contents(path, file_reg, dir_reg):
     
     This implementation uses function recursion."""
     (string, [sumsize, sub_list]) = recurse_print(path, "", file_reg, dir_reg)
-    print str_format(path + os.path.sep, sumsize)
+    print "\n"+str_format(path + os.path.sep, sumsize)
     print string
 
 def experiment():
+    """Just for experimenting on regex."""
     reg = re.compile("txt$")
     strings = ["a.txt", "a", "txt", ".txt", "c.a.txt.a"]
     
@@ -88,7 +89,20 @@ def experiment():
             print "Matches", s
         else:
             print "No match", s
+
+def help_format(option, text):
+    return "\n\t{0:<15}{1}".format(option, text)
+
+def print_help():
+    print """Printdir2
+    This is a program for printing of files and calculating the sizes of directories.
+
+    Is called by typing `python printdir2.py [path] [options]`.
     
+    Options:""" +\
+    help_format("-h", "Print this help and abort.") +\
+    help_format("-f <regex>", "Only consider files matching this regex.") +\
+    help_format("-r <regex>", "Only consider directories matching this regex.")
     
     
 def main():
@@ -104,10 +118,7 @@ def main():
     file_reg = "^(?!README)"
     dir_reg = "^(?!.git)"
     
-    if len(sys.argv)>1:
-        path = sys.argv[1]
-    
-    ix = 2
+    ix = 1
     while ix < len(sys.argv):
         flag = sys.argv[ix]
         if flag == '-f':
@@ -116,6 +127,11 @@ def main():
         elif flag == '-r':
             dir_reg = sys.argv[ix+1]
             ix =  ix+1
+        elif flag == '-h':
+            print_help()
+            return
+        else:
+            path = sys.argv[ix]
         ix = ix+1
     
     print "File reg: " + repr(file_reg)
