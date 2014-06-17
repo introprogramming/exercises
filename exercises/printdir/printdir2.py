@@ -3,6 +3,8 @@ import sys
 import os
 from os.path import isdir, getsize, join
 
+"""Alternative implementation that uses string.format and manual recursion."""
+
 def file_size(root, file):
     """Simply returns the file size of the `file` in directory `root`"""
     return getsize(join(root,file))

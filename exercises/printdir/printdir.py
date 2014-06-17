@@ -3,6 +3,8 @@ import sys
 import os
 from os.path import getsize, join
 
+"""This is a very simple implementation. See printdir2 for a more extensive one."""
+
 def dir_contents_size(path):
     """Prints how many bytes a directory contains.
     
