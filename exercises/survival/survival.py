@@ -32,7 +32,7 @@ main_char = game_object.Character(board)
 sprites = pygame.sprite.Group()
 monsters = pygame.sprite.Group()
 player_projectiles = pygame.sprite.Group()
-monster_projectiles = pygame.sprite.Group()
+#monster_projectiles = pygame.sprite.Group()
 
 def draw():
     """Clears and draws objects to the screen"""
@@ -45,6 +45,7 @@ def draw():
     pygame.display.flip()
 
 def shoot():
+    """Player shoots a projectile."""
     global main_char
     global board
     global sprites
@@ -111,6 +112,9 @@ def update():
         s.update(time)
 
 def populate(constructor):
+    """Function for creating a new sprite object.
+    
+    constructor is the constructor of the object that only accepts one parameter: `board`"""
     global sprites
     global board
     
@@ -122,15 +126,18 @@ def populate(constructor):
     return m
 
 def spawn_creepy():
+    """Spawn a creepy monster"""
     global main_char
     m = populate(lambda(b): game_object.CreepyMonster(b, main_char))
     monsters.add(m)
     
 def spawn_silly():
+    """Spawn a silly monster"""
     m = populate(game_object.SillyMonster)
     monsters.add(m)
 
 def spawn_random_monster():
+    """Spawn a silly monster"""
     c = random.randint(1,100)
     if c<60:
         spawn_silly()
@@ -140,9 +147,11 @@ def spawn_random_monster():
         pass    
 
 def create_flower():
+    """Spawn a background flower"""
     m = populate(game_object.Background)
 
 def game_over():
+    """Game over function: stops the game and updates flag."""
     global running
     global end_screen
     print "GAME OVER!"
@@ -151,10 +160,12 @@ def game_over():
     end_screen = True
 
 def collisions():
+    """Resolve all collisions, such as projectile hits."""
     global monsters
     global player_projectiles
     global sprites
     
+    #Monster hit by player's projectiles
     for monster in pygame.sprite.groupcollide(monsters, player_projectiles, 0, 1):
         if monster.take_damage(1):
             monsters.remove(monster)
@@ -162,13 +173,31 @@ def collisions():
             spawn_random_monster()
             spawn_random_monster()
     
+    #Player attacked by monster
     for monster in pygame.sprite.spritecollide(main_char, monsters, 0):
         if main_char.take_damage(monster.attack()):
             game_over()
             return
-    
+
+def remove_terminated_projectiles():
+    """Remove projectiles that have been travelling for too long."""
+    global sprites
+    global player_projectiles
+    for p in player_projectiles:
+        if p.terminated:
+            sprites.remove(p)
+            player_projectiles.remove(p)
+
+def init():
+    """Creates an initial state."""
+    spawn_silly()
+    spawn_silly()
+    spawn_creepy()
+    for r in range(8):
+        create_flower()
+
 def main():
-    
+    """Main function: handles loop and puts everthing together."""
     # Start the game
     global running
     global end_screen
@@ -183,16 +212,9 @@ def main():
     global HEIGHT
     sprites.add(main_char)
     main_char.set_board_position( board.board_position_of( WIDTH/2, HEIGHT/2) )
-    spawn_silly()
-    spawn_silly()
-    spawn_creepy()
-    create_flower()
-    create_flower()
-    create_flower()
-    create_flower()
-    create_flower()
-    create_flower()
-        
+    
+    init()
+    
     ###############
     ## Game loop
     while running:
@@ -200,6 +222,7 @@ def main():
         handle_input()
         update()
         collisions()
+        remove_terminated_projectiles()
         
         # Draw to the screen
         draw()
@@ -209,6 +232,7 @@ def main():
         ticks += 1
         clock.tick(UPDATES_PER_SEC)
     
+    # Game over
     if end_screen:
         g = game_object.GameOverScreen()
         g.rect.x = (WIDTH - g.rect.width)/2
@@ -228,5 +252,5 @@ def main():
 
     pygame.quit()
 
-
+# Run
 main()
