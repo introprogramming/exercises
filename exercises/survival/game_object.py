@@ -21,6 +21,9 @@ class Board:
         self.height = 1200
         self.screen_x = (self.width - win_width)/2
         self.screen_y = (self.height - win_height)/2
+        
+        self.limit_x = win_width/2
+        self.limit_y = win_height/2
     
     def graph_position_of(self, board_x, board_y):
         x = board_x - self.screen_x
@@ -30,17 +33,21 @@ class Board:
     def set_screen_position(self, board_x, board_y):
         self.screen_x = board_x - self.win_width/2
         self.screen_y = board_y - self.win_height/2
+        #TODO fix
         if self.screen_x < 0:
-            self.screen_x = self.screen_x + self.width
-        if self.screen_y < 0:
-            self.screen_y = self.screen_y + self.height
+            self.screen_x = 0
+        elif self.screen_x + self.win_width > self.width:
+            self.screen_x = self.width - self.win_width
         
+        if self.screen_y < 0:
+            self.screen_y = 0
+        elif self.screen_y + self.win_height > self.height:
+            self.screen_y = self.height - self.win_height
+    
     def board_position_of(self, graph_x, graph_y):
-        return ( (self.screen_x + graph_x)%self.width, (self.screen_y + graph_y)%self.height)
+        return (self.screen_x + graph_x, self.screen_y + graph_y)
     
 class GraphObject(pygame.sprite.Sprite):
-    board_width = 1200
-    board_height = 1200
     
     def __init__(self, image, board):
         pygame.sprite.Sprite.__init__(self)
@@ -60,9 +67,21 @@ class GraphObject(pygame.sprite.Sprite):
     #    self.rect.x = x
     #    self.rect.y = y
     
+    def check(self):
+        if self.board_x < 0:
+            self.board_x = 0
+        elif self.board_x + self.rect.width > self.board.width:
+            self.board_x = self.board.width - self.rect.width
+        
+        if self.board_y < 0:
+            self.board_y = 0
+        elif self.board_y + self.rect.height > self.board.height:
+            self.board_y = self.board.height - self.rect.height
+    
     def update(self, time):
-        self.board_x = (time*self.vx + self.board_x)%GraphObject.board_width
-        self.board_y = (time*self.vy + self.board_y)%GraphObject.board_height
+        self.board_x = (time*self.vx + self.board_x)
+        self.board_y = (time*self.vy + self.board_y)
+        self.check()
         (self.rect.x, self.rect.y) = self.board.graph_position_of(self.board_x, self.board_y)
 
 class Character(GraphObject):
