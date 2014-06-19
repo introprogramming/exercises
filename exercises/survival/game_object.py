@@ -1,5 +1,5 @@
 
-import pygame, os.path, math
+import pygame, os.path, math, random
 
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 resource_path = main_dir+os.path.sep+"resources"+os.path.sep
@@ -46,6 +46,13 @@ class Board:
     
     def board_position_of(self, graph_x, graph_y):
         return (self.screen_x + graph_x, self.screen_y + graph_y)
+
+class GameOverScreen(pygame.sprite.Sprite):
+
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(resource_path+"gameover.png").convert()
+        self.rect = self.image.get_rect()
     
 class GraphObject(pygame.sprite.Sprite):
     
@@ -57,7 +64,8 @@ class GraphObject(pygame.sprite.Sprite):
         self.board_x = 0
         self.board_y = 0
         self.board = board
-        self.update(0)
+        #self.check()
+        (self.rect.x, self.rect.y) = self.board.graph_position_of(self.board_x, self.board_y)
     
     def set_board_position(self, board_p):
         (self.board_x, self.board_y) = board_p
@@ -83,17 +91,78 @@ class GraphObject(pygame.sprite.Sprite):
         self.board_y = (time*self.vy + self.board_y)
         self.check()
         (self.rect.x, self.rect.y) = self.board.graph_position_of(self.board_x, self.board_y)
+        
+class Background(GraphObject):
+    image = pygame.image.load(resource_path+"background1.png")
+    
+    def __init__(self, board):
+        GraphObject.__init__(self, SillyMonster.image.convert(), board)
 
+class AbstractMonster(GraphObject):
+    def __init__(self, image, board, max_hp, speed):
+        GraphObject.__init__(self, image.convert(), board)
+        self.hp = max_hp
+        self.attack_wait = 3
+
+    def take_damage(self, hp):
+        self.hp = self.hp - hp
+        return self.hp <= 0
+    
+    def update(self, time):
+        GraphObject.update(self, time)
+        self.attack_wait = self.attack_wait - time
+    
+    def attack(self):
+        if self.attack_wait <= 0:
+            self.attack_wait = 2
+            print "Ouch!"
+            return 1
+        else:
+            return 0
+
+class CreepyMonster(AbstractMonster):
+    
+    image = pygame.image.load(resource_path+"monster2.png")
+    speed = 220
+    
+    def __init__(self, board, target):
+        AbstractMonster.__init__(self, CreepyMonster.image, board, 3, 250)
+        self.target = target
+    
+    def update(self, time):
+        AbstractMonster.update(self, time)
+        (self.vx, self.vy) = vector_to(CreepyMonster.speed, self.board_x, self.board_y, self.target.board_x, self.target.board_y)
+    
+class SillyMonster(AbstractMonster):
+    
+    image = pygame.image.load(resource_path+"monster1.png")
+    speed = 150
+    
+    def __init__(self, board):
+        AbstractMonster.__init__(self, SillyMonster.image, board, 5, SillyMonster.speed)
+        self.countdown = random.uniform(5,7)
+        self.random_decision()
+    
+    def update(self, time):
+        AbstractMonster.update(self, time)
+        self.countdown = self.countdown - time
+        if self.countdown < 0:
+            self.random_decision()
+            self.countdown = random.uniform(5,7)
+    
+    def random_decision(self):
+        (self.vx, self.vy) = vector_to(SillyMonster.speed, 0, 0, random.uniform(-1,1), random.uniform(-1,1))
+    
 class Character(GraphObject):
     
     image = pygame.image.load(resource_path+"character.png")
-    speed = 100
+    speed = 200
     
     def __init__(self, board):
         GraphObject.__init__(self, Character.image.convert(), board)
         self.horizontal_dir = 0
         self.vertical_dir = 0
-        
+        self.hp = 3
     
     def stop(self, xdir, ydir):
         if self.horizontal_dir == xdir:
@@ -119,6 +188,10 @@ class Character(GraphObject):
             self.vy = 0
         else :
             (self.vx, self.vy) = vector_to(Character.speed, 0, 0, self.horizontal_dir, self.vertical_dir)
+            
+    def take_damage(self, damage):
+        self.hp = self.hp - damage
+        return self.hp <= 0
     
 class Projectile(GraphObject):
     image = pygame.image.load(resource_path+"projectile.png")
@@ -126,8 +199,8 @@ class Projectile(GraphObject):
     max_time = 2
     
     def __init__(self, board):
-        self.time_travelled = 0
         GraphObject.__init__(self, Character.image.convert(), board)
+        self.time_travelled = 0
         
     def set_target(self, target_x, target_y):
         (self.vx, self.vy) = vector_to(Projectile.speed, self.rect.x, self.rect.y, target_x, target_y)
