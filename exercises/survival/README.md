@@ -2,11 +2,15 @@
 
 2d shooter spel: överlev mot monster så länge som möjligt. Du har vapen och (o)begränsad ammunition. Spelet kan givetvis anpassas så att det blir precis som man vill. Det här är tänkt att spelas med tangentbord och mus. Perspektivet är tänkt som rakt uppifrån.
 
+## Tips
 Se gärna exempel [online](http://www.pygame.org/docs/tut/intro/intro.html). Det finns även gott om bra exempel i Pygame mappen: C:\Python27\Lib\site-packages\pygame\examples.
 
-OBS! Tänk på att det inte är viktigt hur spritesen (.png-bilderna) ser ut, rita dem väldigt enkelt i Paint eller motsvarande och lägg istället tiden på att få allt att fungera. När spelet är färdigt kan ni leta efter snygga bilder.
+Gör spelet otroligt enkelt först. Bygg ut senare om ni har tid. Det här är en uppgift av den större och svårare typen.
 
-## Svårighetsgrad 3
+Tänk på att det inte är viktigt hur spritesen (.png-bilderna) ser ut, rita dem väldigt enkelt i Paint eller motsvarande och lägg istället tiden på att få allt att fungera. När spelet är färdigt kan ni leta efter snygga bilder.
+
+
+- Svårighetsgrad 3
 
 ## Moment
 0. Skapa ett fönster och en update-loop som ritar om fönstret efter 1/60 sekunder.
