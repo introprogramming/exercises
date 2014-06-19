@@ -59,7 +59,11 @@ def shoot():
     player_projectiles.add(p)
 
 def handle_input():
-    """Handles the input"""
+    """Handles the input
+    
+    Arrow keys for moving.
+    Space or LMB for shooting.
+    Escape or QUIT for exiting."""
     
     # Global variables that might be changed
     global running
@@ -112,9 +116,9 @@ def update():
         s.update(time)
 
 def populate(constructor):
-    """Function for creating a new sprite object.
+    """Function for creating a new sprite object at a random location.
     
-    constructor is the constructor of the object that only accepts one parameter: `board`"""
+    `constructor` is the constructor of the object that only accepts one parameter: `board`. Use lambda expression for more complicated constructors."""
     global sprites
     global board
     
@@ -126,7 +130,7 @@ def populate(constructor):
     return m
 
 def spawn_creepy():
-    """Spawn a creepy monster"""
+    """Spawn a creepy monster with the `main_char` as the target."""
     global main_char
     m = populate(lambda(b): game_object.CreepyMonster(b, main_char))
     monsters.add(m)
@@ -137,7 +141,7 @@ def spawn_silly():
     monsters.add(m)
 
 def spawn_random_monster():
-    """Spawn a silly monster"""
+    """Spawn a monster at random. May not spawn any at all (if lucky)."""
     c = random.randint(1,100)
     if c<60:
         spawn_silly()
@@ -189,7 +193,7 @@ def remove_terminated_projectiles():
             player_projectiles.remove(p)
 
 def init():
-    """Creates an initial state."""
+    """Spawns flowers and start monsters."""
     spawn_silly()
     spawn_silly()
     spawn_creepy()
