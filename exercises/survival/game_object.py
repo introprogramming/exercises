@@ -30,9 +30,13 @@ class Board:
     def set_screen_position(self, board_x, board_y):
         self.screen_x = board_x - self.win_width/2
         self.screen_y = board_y - self.win_height/2
-    
+        if self.screen_x < 0:
+            self.screen_x = self.screen_x + self.width
+        if self.screen_y < 0:
+            self.screen_y = self.screen_y + self.height
+        
     def board_position_of(self, graph_x, graph_y):
-        return (self.screen_x + graph_x, self.screen_y + graph_y)
+        return ( (self.screen_x + graph_x)%self.width, (self.screen_y + graph_y)%self.height)
     
 class GraphObject(pygame.sprite.Sprite):
     board_width = 1200
@@ -46,6 +50,7 @@ class GraphObject(pygame.sprite.Sprite):
         self.board_x = 0
         self.board_y = 0
         self.board = board
+        self.update(0)
     
     def set_board_position(self, board_p):
         (self.board_x, self.board_y) = board_p
@@ -102,8 +107,8 @@ class Projectile(GraphObject):
     max_time = 2
     
     def __init__(self, board):
-        GraphObject.__init__(self, Character.image.convert(), board)
         self.time_travelled = 0
+        GraphObject.__init__(self, Character.image.convert(), board)
         
     def set_target(self, target_x, target_y):
         (self.vx, self.vy) = vector_to(Projectile.speed, self.rect.x, self.rect.y, target_x, target_y)
