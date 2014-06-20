@@ -10,7 +10,7 @@ Skriv ett program som översätter från svenska till rövarspråket!
 
   ```bash
   python robber.py Johan
-  JoJohohanon
+  Jojohohanon
   ```
 
 2. Ett program som väntar på input från användaren och skriver ut översättningen tills programmet avslutas. **Svårighetsgrad 1**.
@@ -20,7 +20,7 @@ Skriv ett program som översätter från svenska till rövarspråket!
   Hi! What do you want to translate?
   > Johan
   The translation is:
-  JoJohohanon
+  Jojohohanon
   > Hästar är fina.
   The translation is:
   HoHäsostotaror äror fofinona.
@@ -38,13 +38,13 @@ Skriv ett program som översätter från svenska till rövarspråket!
   ```bash
   # Med enkelt ord som argument
   python robber.py Johan
-  JoJohohanon
+  Jojohohanon
   # Inget argument
   python robber.py
   Hi! What do you want to translate?
   > Johan
   The translation is:
-  JoJohohanon
+  Jojohohanon
   # Sökväg till textfil som argument
   python robbery.py svensk_fil.txt
   <Translation here .. >
