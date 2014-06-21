@@ -3,27 +3,42 @@ import sys
 
 sp = spotipy.Spotify()
 
+def format_track(track):
+  name = track['name'].encode('utf8')
+  album = track['album']['name'].encode('utf8')
+  artists = ", ".join(map(lambda a: a['name'], track['artists'])).encode('utf8')
+
+  return "{0} - {1} ({2})".format(name, artists, album)
+
+def format_artist(artist):
+  return artist['name'].encode('utf8')
+
+def show_results(results, formatter):
+  for i, t in enumerate(results['items'], 1):
+    print "{0}. {1}".format(i, formatter(t))
+
 def search(query, limit):
 
   tracks = sp.search(q=query, limit=limit)
   artists = sp.search(q=query, limit=limit, type='artist')
 
-  print "Found {1} tracks with: '{0}' (showing {2} first)\n".format(query, tracks['tracks']['total'], limit)
+  print "\n"
+  print "Found {1} tracks with: '{0}'\n".format(query, tracks['tracks']['total'])
 
-  for i, t in enumerate(tracks['tracks']['items'], 1):
-      _name = t['name'].encode('utf8')
-      _album = t['album']['name'].encode('utf8')
-      _artists = ", ".join(map(lambda a: a['name'], t['artists'])).encode('utf8')
+  if tracks['tracks']['total'] > limit:
+    print "(showing {0} first)".format(limit)
 
-      print "{3}. {0} - {1} ({2})".format(_name, _artists, _album, i)
+  show_results(tracks['tracks'], format_track)
 
-  print "\nFound {1} artists with: '{0}' (showing {2} first)\n".format(query, artists['artists']['total'], limit)
+  print "\n"
+  print "Found {1} artists with: '{0}'\n".format(query, artists['artists']['total'])
 
-  for i, t in enumerate(artists['artists']['items'], 1):
-      name = t['name'].encode('utf8')
+  if artists['artists']['total'] > limit:
+    print "(showing {0} first)".format(limit)
 
-      print "{0}. {1}".format(i, name)
+  show_results(artists['artists'], format_artist)
 
+  print "\n"
 
 if __name__ == "__main__":
   if len(sys.argv) <= 1:
