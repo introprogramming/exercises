@@ -17,14 +17,26 @@ Nu bör du kunna skriva `import spotipy` överst i en Python-fil och använda de
 import spotipy
 
 sp = spotipy.Spotify()
-tracks = sp.search(q='weezer', limit=20)
-for i, t in enumerate(tracks['tracks']):
-    print ' ', i, t['name']
+tracks = sp.search(q='Stairway To Heaven')
+for i, t in enumerate(tracks['tracks']['items'], 1):
+  name = t['name']
+  print "{1}. {0}".format(name, i)
 ```
+
+## Delmoment
+
+1. Använd `sp.search()` för att söka efter en låt och visa resultaten.  
+  1.1. Visa även album och artist.
+
+2. Låt koden söka efter en textsträng man ger skriptet: `python searcher.py 'Stairway To Heaven'`.
+
+3. Lägg till funktion för att söka på artister.
+
+Presentera den infon du känner är relevant! Se i [dokumentationen](https://developer.spotify.com/web-api/search-item/) vilka data som finns tillgängliga. 
 
 ## Utbyggnad
 
-1. Spela upp de korta förhandsvisningarna av låtarna som finns (se [API-dokumentationen](https://developer.spotify.com/web-api/object-model), `preview_url` för Track Object).
+1. Spela upp de korta förhandsvisningarna av låtarna som finns (se [API-dokumentationen](https://developer.spotify.com/web-api/object-model), `preview_url` för Track Object). Externa bibliotek för ljuduppspelning lär behövas.
 
 ## Externa bibliotek
 
