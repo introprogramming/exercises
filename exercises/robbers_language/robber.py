@@ -12,6 +12,7 @@
 
 import sys
 import os
+import os.path
 import mimetypes
 
 # Helpers
@@ -32,7 +33,8 @@ def is_consonant(char):
 def is_valid_file(input):
   ''' Returns true if input is a valid text file.
 
-  >>> is_valid_file('./fixtures/test.txt')
+  >>> dir_path = os.path.split(os.path.abspath(__file__))[0]
+  >>> is_valid_file(dir_path + os.path.sep + 'fixtures' + os.path.sep + 'test.txt')
   True
   >>> is_valid_file('./bogus')
   False
@@ -46,7 +48,8 @@ def file_contents_from(path):
   ''' Fetch file contents from a file at path.
   Returns False if file at path cannot be read.
 
-  >>> file_contents_from('./fixtures/test.txt')
+  >>> dir_path = os.path.split(os.path.abspath(__file__))[0]
+  >>> file_contents_from(dir_path + os.path.sep + 'fixtures' + os.path.sep + 'test.txt')
   'En enkel fil.\\n'
   >>> file_contents_from('./bogus')
   False
