@@ -1,6 +1,6 @@
 # Chat
 
-Enkel chat i terminalen mellan två klienter utan server (P2P).
+Enkel chat i terminalen mellan två (eller flera) datorer utan server.
 
 **Koncept**: nätverk, trådar
 
@@ -29,6 +29,10 @@ för att ansluta. Mellan olika datorer får man byta ut `localhost` mot datorns 
 
 ##Utbyggnad:
 - Socketmönstret *PAIR* kan bara skapa en anslutning mellan två sockets. Med vår arkitektur som har två sockets per klient kan vi med fördel använda mönstret *Publisher/Subscriber* så att fler klienter än två kan delta i samma chatt. Se exempel [här](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html). Då kommer socketen i huvudtråden att vara *publisher* och den i daemon-tråden att vara *subscriber*.
+- Hantera kommandon såsom `\help` och `\connect`. Help ska skriva ut vilka kommandon som finns (exempelvis hur man avslutar programmet) och connect ska ansluta till en ny klient.
+- Använd filter för att skapa chatt-kanaler: man fortsätter att lyssna på alla kanaler men skriver alltid till en viss kanal. Se [guiden](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html) för *publisher/subscriber pattern*.
+- Implementera `\disconnect <channel>`. Tänk på att inte alla typer av objekt är trådsäkra. Använd `multiprocessing.Lock` för att säkerställa att bara en tråd ändrar på samma objekt åt gången.
+
 
 ## Externa bibliotek
 ### pyzmq
@@ -37,5 +41,5 @@ Pyzmq är ett bibliotek för enkla stabila sockets.
 - [Tutorial](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/pyzmq.html)
 - [Dokumentation](http://zeromq.github.io/pyzmq/api/zmq.html)
 
-Installeras lättats mha pakethanteraren till python, [pip](http://pip.readthedocs.org/en/latest/installing.html):  
+Installeras lättast mha pakethanteraren till python, [pip](http://pip.readthedocs.org/en/latest/installing.html):  
 `pip install pyzmq`
