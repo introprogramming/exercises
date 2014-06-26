@@ -28,10 +28,10 @@ för att ansluta. Mellan olika datorer får man byta ut `localhost` mot datorns 
 (**Svårighetsgrad 2**)
 
 ##Utbyggnad:
-- Socketmönstret *PAIR* kan bara skapa en anslutning mellan två sockets. Med vår arkitektur som har två sockets per klient kan vi med fördel använda mönstret *Publisher/Subscriber* så att fler klienter än två kan delta i samma chatt. Se exempel [här](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html). Då kommer socketen i huvudtråden att vara *publisher* och den i daemon-tråden att vara *subscriber*.
-- Hantera kommandon såsom `\help` och `\connect`. Help ska skriva ut vilka kommandon som finns (exempelvis hur man avslutar programmet) och connect ska ansluta till en ny klient.
-- Använd filter för att skapa chatt-kanaler: man fortsätter att lyssna på alla kanaler men skriver alltid till en viss kanal. Se [guiden](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html) för *publisher/subscriber pattern*.
-- Implementera `\disconnect <channel>`. Tänk på att inte alla typer av objekt är trådsäkra. Använd `multiprocessing.Lock` för att säkerställa att bara en tråd ändrar på samma objekt åt gången.
+- Socketmönstret *PAIR* kan bara skapa en anslutning mellan två sockets. Med vår arkitektur som har två sockets per klient kan vi med fördel använda mönstret *Publisher/Subscriber* så att fler klienter än två kan delta i samma chatt. Se exempel [här](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html). Då kommer socketen i huvudtråden att vara *publisher* och den i daemon-tråden att vara *subscriber*. (**Svårighetsgrad 3**)
+- Hantera kommandon såsom `\help` och `\connect`. Help ska skriva ut vilka kommandon som finns (exempelvis hur man avslutar programmet) och connect ska ansluta till en ny klient. (**Svårighetsgrad 2**)
+- Använd filter för att skapa chatt-kanaler: man fortsätter att lyssna på alla kanaler men skriver alltid till en viss kanal. Se [guiden](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html) för *publisher/subscriber pattern*. (**Svårighetsgrad 3**)
+- Implementera `\disconnect <channel>`. Tänk på att inte alla typer av objekt är trådsäkra. Använd `multiprocessing.Lock` för att säkerställa att bara en tråd ändrar på samma objekt åt gången. (**Svårighetsgrad 3**)
 
 
 ## Externa bibliotek
