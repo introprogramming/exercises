@@ -1,4 +1,4 @@
-# Chat [WIP]
+# Chat
 
 Concept: Enkel asynkron chat mellan två klienter utan server.
 
@@ -11,4 +11,4 @@ Concept: Enkel asynkron chat mellan två klienter utan server.
 4. Tolka och skriv ut meddelandena till skärmen
 
 ## Externa bibliotek
-- ?
+- pyzmq
