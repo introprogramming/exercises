@@ -15,8 +15,6 @@ Att bygga ett "mjukvaru-piano" eller s.k. MIDI-keyboard med ca 14 tangenter (c1-
 - Funktionalitet för att byta oktav med exempelvis 'z' och 'x'. **Svårighetsgrad 2**
 - Låt användaren höja eller sänka volymen. **Svårighetsgrad 1**
 - Låt användaren välja/byta MIDI [instrument](http://www.skoogmusic.com/manual/manual1.1/Skoog-Window/navigation/MIDI-Tab/index). **Svårighetsgrad 2**
-- Lägg till funktionalitet att spela in musiken till en fil.
-- Spela upp ljud från midi-filer.
 
 ## Externa bibliotek
 Spelbiblioteket `pygame` och dess modul `pygame.midi`:

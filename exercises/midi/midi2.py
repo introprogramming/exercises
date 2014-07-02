@@ -94,7 +94,7 @@ def help():
 -------------------------------------
 # Midi keyboard.
 
-White keys are TAB to P. Black keys are on the numbers. Middle C is found on 'r'.
+White keys are 'TAB' to 'p'. Black keys are on the numbers. Middle-C is found on 'r'.
 
 Increase/decrease octave: 'z'/'x'
 Change instrument: 'c'/'v'
