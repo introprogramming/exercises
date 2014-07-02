@@ -145,6 +145,10 @@ def main():
         return
     
     out_device = midi.get_default_output_id()
+    if out_device == -1:
+        print "No MIDI output device detected :P"
+        return
+    
     print "Uses device no:", out_device
     keyboard = Keyboard(out_device, instrument)
     
