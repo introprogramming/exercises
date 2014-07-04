@@ -8,9 +8,9 @@ Enkel chat i terminalen mellan två (eller flera) datorer utan server.
 `zmq_socket.connect("tcp://localhost:%s" % port)`  
 för att ansluta. Mellan olika datorer får man byta ut `localhost` mot datorns lokala IP-adress.
 
-## Svårighetsgrad 3
+- **Svårighetsgrad:** 3
 
-## Moment
+## Delmoment
 
 1. Utgå från exemplet som beskrivs [här](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pair.html). Anpassa exemplet så att programmet läser in rader från terminalen istället för att slumpa data. (**Svårighetsgrad 2**)
 2. Ange nätverksporten som argument till programmet (eller slumpa fram den) och låt även användaren välja vilken port programmet ska ansluta till. (**Svårighetsgrad 2**)
@@ -27,7 +27,7 @@ för att ansluta. Mellan olika datorer får man byta ut `localhost` mot datorns 
 `socket.getbyhostname(socket.gethostname)`  
 (**Svårighetsgrad 2**)
 
-##Utbyggnad:
+## Utbyggnad:
 - Socketmönstret *PAIR* kan bara skapa en anslutning mellan två sockets. Med vår arkitektur som har två sockets per klient kan vi med fördel använda mönstret *Publisher/Subscriber* så att fler klienter än två kan delta i samma chatt. Se exempel [här](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html). Då kommer socketen i huvudtråden att vara *publisher* och den i daemon-tråden att vara *subscriber*. (**Svårighetsgrad 3**)
 - Hantera kommandon såsom `\help` och `\connect`. Help ska skriva ut vilka kommandon som finns (exempelvis hur man avslutar programmet) och connect ska ansluta till en ny klient. (**Svårighetsgrad 2**)
 - Använd filter för att skapa chatt-kanaler: man fortsätter att lyssna på alla kanaler men skriver alltid till en viss kanal. Se [guiden](http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pubsub.html) för *publisher/subscriber pattern*. (**Svårighetsgrad 3**)
