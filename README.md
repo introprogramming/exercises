@@ -44,7 +44,7 @@ Att spela upp en ljudfil är tokenkelt - att t.ex. bygga ett GUI med visualiseri
 
 ### Utbyggnad
 
-Är lösningen expanderbar? Hur kan elevent göra den till sin och bygga vidare mer egna idéer?
+Är lösningen expanderbar? Hur kan eleven göra den till sin och bygga vidare mer egna idéer?
 
 ### Externa bibliotek
 
