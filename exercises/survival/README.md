@@ -11,9 +11,10 @@ Tänk på att det inte är viktigt hur sprites:en (.png-bilderna) ser ut, rita d
 
 Ett användbart koncept i den här uppgiften är **polymorfism**. Detta kommer ni ha nytta av på update-metoden.
 
-- Svårighetsgrad 3
+- **Svårighetsgrad:** 3
 
-## Moment
+## Delmoment
+
 0. Skapa ett fönster och en update-loop som ritar om fönstret efter 1/60 sekunder. Varje iteration är en s.k. **frame**.
 1. Skapa en egen klass `GraphObject` som ärver `pygame.sprite.Sprite` Skapa en funktion update(self, time) som anropas i varje frame.
 2. Rita ut några objekt mha `g = pygame.sprite.Group()` och `g.draw(screen)`.
