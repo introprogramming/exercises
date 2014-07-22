@@ -2,10 +2,13 @@
 
 Ett program som spelar upp musik-filer som mp3 och wav.
 
-*Tips:*  
-Om musiken spelas upp men i fel hastighet kan man ange 'sample rate' mha `pygame.mixer.music.init(44100)`.
-
 - **Svårighetsgrad: 1**
+
+*Felsökning:*
+
+- Om musiken spelas upp men i fel hastighet kan man ange 'sample rate' mha `pygame.mixer.music.init(44100)`.
+- Om det kommer upp ett felmeddelande "Unrecognized music format" trots att det är .mp3, så testa med en .ogg eller .wav istället. Pygame skriver att deras läsning av mp3 kan strula på vissa platformar.
+
 
 ## Delmoment
 
