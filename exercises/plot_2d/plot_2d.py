@@ -180,7 +180,7 @@ def draw(screen, pp, plot_color):
     pygame.draw.lines(screen, plot_color, False, pp, 3)
 
 def draw_axis(screen):
-    """Draws the axis and ticks of the coordinate system."""
+    """Draws the axes and ticks of the coordinate system."""
     ## Alternative implementations:
     #draw_x_ticks(screen)
     #draw_y_ticks(screen)

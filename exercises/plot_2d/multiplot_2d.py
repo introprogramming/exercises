@@ -50,15 +50,12 @@ def main():
     map(lambda(f): plot_fun(f, plot_2d.X_MIN, plot_2d.X_MAX, plot_2d.N_POINTS, screen),\
         functions_to_print())
     plot_2d.draw_axis(screen)
-
-    done = False
-    while not done:
-        time = clock.tick(60)
-        pygame.display.update()
-        for e in pygame.event.get():
-            if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
-                done = True
-                break
+    
+    pygame.display.update()
+    while 1:
+        e = pygame.event.wait()
+        if e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
+            break
 
     pygame.quit()
 
