@@ -106,13 +106,19 @@ Press 'h' to see this help again.
 def io_loop(keyboard):
     """Main program loop. Handles IO."""
     help()
-    while 1:
-            e = pygame.event.wait()
+    
+    clock = pygame.time.Clock()
+    done = False
+    while not done:
+        time = clock.tick(15)
+        for e in pygame.event.get():
             
             if e.type == pygame.QUIT:
+                done = True
                 break
             elif e.type == pygame.KEYDOWN:
                 if e.key == pygame.K_ESCAPE:
+                    done = True
                     break
                 elif e.key == K_h or e.key == K_F1:
                     help()
