@@ -12,8 +12,8 @@ def vector_to(speed, from_x, from_y, target_x, target_y):
     """Creates a vector of length `speed` in wanted direction."""
     x = target_x - from_x
     y = target_y - from_y
-    
-    return (x*speed/norm(x,y), y*speed/norm(x,y))
+    s = speed/norm(x,y)
+    return (x*s, y*s)
 
 class Board:
     """The game world.

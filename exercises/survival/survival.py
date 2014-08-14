@@ -201,7 +201,7 @@ def init():
         create_flower()
 
 def main():
-    """Main function: handles loop and puts everthing together."""
+    """Main function: handles loop and puts everything together."""
     # Start the game
     global running
     global end_screen
