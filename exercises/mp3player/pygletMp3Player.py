@@ -1,11 +1,30 @@
 import pyglet
+from pyglet.window import key
 
 #Pyglet implementation
 
 music = pyglet.resource.media('sample.wav')
 music.play()
 
+window = pyglet.window.Window()
+
+paused = False
+
+@window.event
+def on_key_press(symbol, modifiers):
+    if symbol == key.P:
+        global paused
+        if paused:
+            player.play()
+            paused = False
+        else:
+            player.pause()
+            paused = True
+
 pyglet.app.run()
+
+
+print "SO FAR :)"
 player = pyglet.media.Player()
 
 def help():
@@ -24,6 +43,7 @@ You can give a file as an argument or use the commands below."""
 help()
 
 # Listen for user input
+print "LISTEN :)"
 s=raw_input()
 paused = False
 while s!="end" and s!="exit":
@@ -55,3 +75,5 @@ while s!="end" and s!="exit":
     else:
         print "I don't understand what you mean with '"+s+"'. Type `h` or `help` to see a list of commands."
     s=raw_input()
+
+pyglet.app.exit()
