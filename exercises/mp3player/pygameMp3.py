@@ -1,7 +1,7 @@
 import pygame, sys
 #import time
 
-file = "sample.mp3"
+file = "sample.wav"
 if len(sys.argv)>1:
     file = sys.argv[1]
 
@@ -14,10 +14,10 @@ def help():
 \tend or exit \t Exit program
 \tr or rewind \t Play from the start
 \tp or pause \t Pause/unpause music
-\tq or queue \t Add music to queue
 \ts or stop \t Stop playing this one
 \tpl or play \t Play this file
 \th or help \t See this list again"""
+#\tq or queue \t Add music to queue
 
 print """Welcome to this music player!
 
@@ -29,7 +29,8 @@ s=raw_input()
 paused = False
 while s!="end" and s!="exit":
     if s == "r" or s == "rewind":
-        pygame.mixer.music.rewind()
+        #pygame.mixer.music.rewind()
+        pygame.mixer.music.play(0)
     elif s == "p" or s == "pause":
         if paused:
             pygame.mixer.music.unpause()
@@ -37,9 +38,11 @@ while s!="end" and s!="exit":
         else:
             pygame.mixer.music.pause()
             paused = True
-    elif s == "q" or s == "queue":
-        file = raw_input("Add file to queue: ")
-        pygame.mixer.music.queue(file)
+
+    # Queue function seems to be defect :P
+    #elif s == "q" or s == "queue":
+    #    file = raw_input("Add file to queue: ")
+    #    pygame.mixer.music.queue(file)
     elif s == "s" or s == "stop":
         pygame.mixer.music.stop()
     elif s == "pl" or s == "play":

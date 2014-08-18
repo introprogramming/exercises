@@ -18,7 +18,7 @@ Ett program som spelar upp musik-filer som mp3 och wav.
 ## Utbyggnad
 * Låt användaren välja vilken fil som ska spelas upp genom att ange det som ett argument till programmet:  
 `python mitt_program.py "en fin sång.mp3"` **Svårighetsgrad 1**
-* Låt användaren kunna pausa musiken, spela upp en annan sång eller lägga en sång på kö, utan att avsluta programmet. Dessa finns som funktioner i `pygame.mixer.music`. **Svårighetsgrad 2**
+* Låt användaren kunna pausa musiken eller spela upp en annan sång. Dessa finns som funktioner i `pygame.mixer.music`. Funktionerna `rewind()` och `queue()` verkar vara lite instabila men fundera gärna över hur man kan åstadkomma dessa funktionaliteter på andra sätt. **Svårighetsgrad 2**
 
 ## Externa bibliotek
 * [pygame](http://www.pygame.org/)
