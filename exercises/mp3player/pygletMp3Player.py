@@ -1,6 +1,8 @@
 import pyglet
 
-music = pyglet.resource.media('button-09.wav')
+#Pyglet implementation
+
+music = pyglet.resource.media('sample.wav')
 music.play()
 
 pyglet.app.run()
@@ -9,12 +11,12 @@ player = pyglet.media.Player()
 def help():
     print """\nCommands:
 \tend or exit \t Exit program
-\tr or rewind \t Play from the start
-\tp or pause \t Pause/unpause music
-\ts or stop \t Stop playing this one
 \tpl or play \t Play this file
+\tp or pause \t Pause/unpause music
+\tq or queue \t Add music to queue
+\tn or next \t Skip to next piece
+\tr or rewind \t Play from the start
 \th or help \t See this list again"""
-#\tq or queue \t Add music to queue
 
 print """Welcome to this music player!
 
@@ -38,11 +40,14 @@ while s!="end" and s!="exit":
     
     elif s == "q" or s == "queue":
         file = raw_input("Add file to queue: ")
-        player.queue(file)
-    elif s == "s" or s == "stop":
-        pass
+        music = pyglet.resource.media(file)
+        player.queue(music)
+    elif s == "n" or s == "next":
+        player.next()
     elif s == "pl" or s == "play":
-        pass
+        file = raw_input("Play this file instead: ")
+        music = pyglet.resource.media(file)
+        music.play()
     elif s == "h" or s == "help":
         help()
     elif s == "":

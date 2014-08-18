@@ -23,6 +23,10 @@ Ett program som spelar upp musik-filer som mp3 och wav.
 ## Externa bibliotek
 * [pygame](http://www.pygame.org/)
 
+Pygame används i flera andra uppgifter men är något begränsat i detta avseende då det egentligen är skapat för spel.
+
 alternativt
 
 * [pyglet](http://www.pyglet.org/download.html)
+
+Pyglet är perfekt för den här uppgiften men kräver att Python är 32-bitars. 
