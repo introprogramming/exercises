@@ -9,7 +9,6 @@ Ett program som spelar upp musik-filer som mp3 och wav.
 - Om musiken spelas upp men i fel hastighet kan man ange 'sample rate' mha `pygame.mixer.music.init(44100)`.
 - Om det kommer upp ett felmeddelande "Unrecognized music format" trots att det är .mp3, så testa med en .ogg eller .wav istället. Pygame skriver att deras läsning av mp3 kan strula på vissa platformar.
 - Funktionerna `rewind()` och `queue()` i `pygame.mixer.music` verkar vara lite instabila.
-- Pyglet stödjer i första hand .wav.
 
 ## Delmoment
 
@@ -22,13 +21,5 @@ Ett program som spelar upp musik-filer som mp3 och wav.
 * Låt användaren kunna pausa musiken eller spela upp en annan sång. Dessa finns som funktioner i `pygame.mixer.music`. **Svårighetsgrad 2**
 
 ## Externa bibliotek
-Är man ganska ny som programmerare rekommenderas pygame (som också används i flera andra uppgifter). Vill man lägga ner väldigt mycket tid på denna uppgiften för att skapa en grafiskt snygg mp3spelare så använd pyglet.
 
 * [pygame](http://www.pygame.org/)
-
-alternativt
-
-* [pyglet](http://www.pyglet.org/download.html)
-
-**OBS!** Pyglet kräver 32-bit Python för att fungera.  
-Kort pyglet [guide](http://www.pyglet.org/doc/programming_guide/writing_a_pyglet_application.html).

@@ -4,6 +4,9 @@ from pyglet.window import key
 
 # Pyglet implementation
 #
+# DEPRECATED!
+# We don't intend on using Pyglet in the course anylonger.
+#
 # Doesn't work so well with the sample.wav :P
 # Only supports WAV unless one also installs AVBin
 
