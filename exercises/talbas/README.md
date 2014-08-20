@@ -15,6 +15,10 @@ Konvertera mellan talbaserna binär och decimal
 `$ python convert.py bin 101`  
 `5`
 
-# Eventuella vidareutvecklingar
+## Utbyggnad
 
 - Lägga till talbaserna oktalt och hexadecimalt
+
+## Externa bibliotek
+
+- (inga)
