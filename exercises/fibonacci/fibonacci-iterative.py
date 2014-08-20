@@ -2,7 +2,7 @@
 
 input = int(raw_input("Enter a number: "));
 
-def next_fibonacci(stop_after):
+def fibonacci_n(stop_after):
     """Iteratively searches for the fibonacci number that
     comes after the stop_after value"""
     if stop_after <= 0:
@@ -18,6 +18,18 @@ def next_fibonacci(stop_after):
         curr = curr + prev;
         prev = curr - prev;
         count = count + 1;
+    
+    return prev;
+
+def next_fibonacci(stop_after):
+    """Iteratively searches for the fibonacci number that
+    comes after the stop_after value"""
+    prev = 0;
+    curr = 1;
+    
+    while prev <= stop_after:
+        curr += prev;
+        prev = curr - prev;
     
     return prev;
     
