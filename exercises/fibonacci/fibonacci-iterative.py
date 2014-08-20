@@ -3,8 +3,7 @@
 input = int(raw_input("Enter a number: "));
 
 def fibonacci_n(stop_after):
-    """Iteratively searches for the fibonacci number that
-    comes after the stop_after value"""
+    """Iteratively searches for the N-th fibonacci number"""
     if stop_after <= 0:
          return 0;
     if stop_after <= 2:

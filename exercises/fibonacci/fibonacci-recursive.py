@@ -6,7 +6,8 @@ input = int(raw_input("Enter a number: "));
 
 
 def fibonacci_n(prev, curr, stop_after):
-    """Tail-recursive implementation with linear complexity."""
+    """Tail-recursive implementation with linear complexity for finding 
+    the N-th Fibonacci number."""
     if (stop_after > 0):
         return fibonacci_n(curr, curr + prev, stop_after-1)
     elif (stop_after == 0):
