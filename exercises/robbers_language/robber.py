@@ -21,7 +21,7 @@ CONSONANTS = "qwrtpsdfghjklzxcvbnm"
 SUFFIX = 'o'
 
 def is_consonant(char):
-  '''Returns true of char is consonant. False otherwise
+  '''Returns true if char is consonant. False otherwise
 
   >>> is_consonant('a')
   False
@@ -72,7 +72,7 @@ def translate(string):
   '''
   output = ""
 
-  for char in list(string):
+  for char in string:
     output += add_suffix_if_consonant(char)
 
   return output
