@@ -1,13 +1,13 @@
 # Talsyntes
 
-Låt datorn läsa upp text.
+Skapa ett program som läser upp text.
 
 - **Svårighetsgrad:** 1
 
 ## Delmoment
 
 1. Låt programmet läsa upp en lämplig sträng på engelska med hjälp av `engine.say()`.
-2. Lyssna igenom de olika röster som finns tillgängliga på ert system och låt programmet använda denna med hjälp av `engine.setProperty()`.
+2. Lyssna igenom de olika röster som finns tillgängliga på ert system och låt programmet använda denna med hjälp av `engine.setProperty()`. **Obs!** I windows verkar det bara finnas en röst att välja på.
 3. Skapa en loop som låter användaren skriva in rader som programmet då läser upp. Loopen ska avbrytas av lämpligt kommando.
 
 ## Utbyggnad
