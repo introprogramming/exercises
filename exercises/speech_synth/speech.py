@@ -3,7 +3,7 @@
 # http://code.activestate.com/recipes/578839-python-text-to-speech-with-pyttsx/
 
 import pyttsx
-import sys
+import sys, time
 
 engine = pyttsx.init()
 
@@ -24,7 +24,7 @@ def init():
     engine.setProperty('rate', 190)
     engine.setProperty('volume', 1.0)
     #On MacOSX 10.9 there are 24 different ones to choose from, but only one in Win7
-    #engine.setProperty('voice', engine.getProperty('voices')[18].id)
+    #engine.setProperty('voice', engine.getProperty('voices')[11].id)
 
 def say_something(line):
     engine.say(line)
@@ -33,6 +33,7 @@ def say_something(line):
 def read_file(file):
     for line in open(file): #.read():
         say_something(line)
+        time.sleep(0.2)
 
 def loop():
     print "Exit by typing `exit` or simply an empty line ``"
@@ -43,6 +44,8 @@ def loop():
         say_something(line)
         line = raw_input("Say something: ")
 
+
+## Main
 
 init()
 #listen_to_voices()
