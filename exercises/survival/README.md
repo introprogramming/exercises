@@ -5,9 +5,13 @@
 ## Tips
 **OBS!** Det här är en uppgift av den större och svårare typen. Börja otroligt enkelt först och få det att fungera. Bygg ut det fungerande programmet successivt tills det är så coolt som ni vill ha det.
 
-Exempel kan vara bra för att komma igång, bäst lär man sig dock genom att göra själv. Använd gärna [detta](http://programarcadegames.com/index.php?chapter=introduction_to_sprites) exempel som utgångspunkt. Ni kan även se andra exempel [online](http://www.pygame.org/docs/tut/intro/intro.html) eller i Pygame mappen: `C:\Python27\Lib\site-packages\pygame\examples`.
+Exempel kan vara bra för att komma igång, bäst lär man sig dock genom att göra själv. Använd gärna [detta](http://programarcadegames.com/index.php?chapter=introduction_to_sprites) exempel som utgångspunkt. Ni kan även se andra exempel [online](http://www.pygame.org/docs/tut/intro/intro.html) eller i Pygame mappen:  
+`C:\Python27\Lib\site-packages\pygame\examples`.
 
 Tänk på att det inte är viktigt hur sprites:en (.png-bilderna) ser ut, rita dem väldigt enkelt i Paint eller motsvarande och lägg istället tiden på att få allt att fungera. När spelet är färdigt kan ni leta efter snygga bilder.
+
+**OBS!** På Chalmers linux-datorer saknas vissa dependencies till pygame vilket medför att den endast stödjer .bmp-bilder. Detta är relevant att tänka på om ni skulle få felmeddelandet:  
+`pygame.error: File is not a Windows BMP file`.
 
 Ett användbart koncept i den här uppgiften är **polymorfism**. Detta kommer ni ha nytta av på update-metoden.
 
