@@ -75,7 +75,7 @@ class TetrisObject:
         new_shape = self.shape[(self.rotation + 1) % len(self.shape)]
         
         for i in range(len(new_shape)):
-            if new_shape[i][0] + self.x < 0 or new_shape[i][1] + self.x >= len(blocks[0]) or blocks[new_shape[i][1] + self.y][new_shape[i][0] + self.x]:
+            if new_shape[i][0] + self.x < 0 or new_shape[i][0] + self.x >= len(blocks[0]) or blocks[new_shape[i][1] + self.y][new_shape[i][0] + self.x]:
                 return
                 
         self.rotation = (self.rotation + 1) % len(self.shape)
