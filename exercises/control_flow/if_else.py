@@ -3,23 +3,13 @@
 
 variable = 42
 
-if variable % 2 == 0:
-    print("Divisible by 2")
-elif variable % 3 == 0:
-    print("Divisible by 3")
-elif variable % 4 == 0:
-    print("Divisible by 4")
+if variable <= 5:
+    print("less than or equal to 5")
 elif variable % 5 == 0:
     print("Divisible by 5")
 elif variable % 6 == 0:
     print("Divisible by 6")
 elif variable % 7 == 0:
     print("Divisible by 7")
-elif variable % 8 == 0:
-    print("Divisible by 8")
-elif variable % 9 == 0:
-    print("Divisible by 8")
-elif variable % 10 == 0:
-    print("Divisible by 8")
 else:
-    print("Not divisible by any number int the range [2-10]")
+    print("Not less than or equal to 5 nor divisible by any number int the range [5-7]")
