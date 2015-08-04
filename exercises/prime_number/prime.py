@@ -10,9 +10,11 @@ def is_prime(integer):
 
 
 
-# Your code below:
 print("Should be False (0): %r" % is_prime(0))
 print("Should be False (1): %r" % is_prime(1))
 print("Should be True  (2): %r" % is_prime(2))
 print("Should be False (8): %r" % is_prime(8))
 print("Should be True (17): %r"% is_prime(17))
+
+
+# Your code below:
