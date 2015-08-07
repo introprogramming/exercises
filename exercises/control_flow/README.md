@@ -22,11 +22,8 @@ I denna uppgift får du undersöka hur loopar fungerar samt grundläggande logis
 	Det är något som är fel på if-else satsen. Försök lösa problemet.
 	Tips: programmet exekveras linjärt. Tänk rad för rad vad som händer.
 
-3. Härnäst ska vi kolla på beräkning av primtal.
-	prime.py innehåller en funktion för att kolla om ett tal är ett primtal. Funktionen är dock inte helt färdigskriven.
-
-
-	Funktioner har du redan använt dock är det här första gången som du ser hela definitionen på en.
+3. Funktioner
+	Funktioner har du redan sett och använt, exempelvis print("Hello, World!") eller range(10), dock är det här första gången som du ser hela definitionen på en.
 	Du kan själv definiera funktioner genom att skriva
 
 	def funktionsnamn(parameter1, parameter2):
@@ -36,6 +33,24 @@ I denna uppgift får du undersöka hur loopar fungerar samt grundläggande logis
 	parameterlistan (det innanför parenteserna) kan innehålla hur många parametrar som helst men behöver heller inte ha några alls. parametrar separeras med ','
 	
 	Var som helst i en funktion kan man använda 'return x', funktionen returnerar då x och avbryts direkt. programmet körs vidare där funktionen kallades
+	
+	När man skriver små program kanske man inte behöver funktioner. Men när det börjar bli större så är de väldigt användbara för att strukturera upp koden och göra abstraktioner. Man kan tänka på en funktion som en låda där du stoppar in något på ena sidan och får ut något på den andra. Lådan brukar ofta kallas "black box" då vi inte vet hur beräkningarna görs. Däremot vet vi vad vi kan stoppa in och vad vi förväntar oss att få ut.
+
+	I functions.py ser du några exempel på hur funktioner fungerar. Du behöver inte memorera allt nu, du kan återkomma och se hur syntaxen ser ut, det viktiga är att du förstår vilka möjligheter det ger dig.
+
+
+4. Funktionen "contains" och listor.
+	Listor är likt funktoner väldigt användbart, här används listor för att visa ett exempel på en användbar funktion. Därför går vi nu bara igenom basen för hur listor fungerar.
+
+	lists.py innehåller exempel och övningar på hur listor kan användas.
+
+	När du är nöjd och har fått lite förståelse för hur listor fungerar gå vidare till contains.py.
+
+5. Härnäst ska vi kolla på beräkning av primtal.
+	prime.py innehåller en funktion för att kolla om ett tal är ett primtal. Funktionen är dock inte helt färdigskriven.
+
+
+	
 
 ## Utbyggnad
 
