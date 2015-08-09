@@ -19,19 +19,19 @@ print("")
 list1 = [1,2,3,4]
 list2 = [1,2,3,4,5,6,7]
 list3 = [1,2,3,5]
-# Now try to create a function which determines weather a list is contained in another list.
+
+
+# Create a function which determines weather a list is contained in another list.
 # Some tips:
 # - use the contains function defined above in your function.
 # - you want to check if each element in the sublist is contained in the list
-# - you'll probably want to use boolean arithmetics, short example in boolean_arithmetic.py
+# - you can use boolean arithmetics, short example in boolean_arithmetic.py
 
 
 def sublist_contains(list, sublist):
 	# your code here
-	all_contained = True
-	for elem in sublist:
-		all_contained = all_contained and contains(list, elem)
-	return False
+	return None
+	
 
 
 
@@ -39,5 +39,6 @@ def sublist_contains(list, sublist):
 print("")
 print("Expected True,  Actual %r" % sublist_contains(list2, list1))
 print("Expected False, Actual %r" % sublist_contains(list3, list1))
+print("Expected True,  Actual %r" % sublist_contains(list1, list1))
 print("")
 
