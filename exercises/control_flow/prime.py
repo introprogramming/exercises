@@ -3,6 +3,8 @@
 
 def is_prime(integer):
     """Determines weather integer is prime, returns a boolean value"""
+    # add logic here to make sure number < 2 are not prime
+
     for i in range(2, integer):
         if integer % i == 0:
             return False 
