@@ -2,7 +2,7 @@
 
 
 def contains(list, e):
-	""" determines wheter e is contained in the list """
+	""" determines whether e is contained in the list """
 	for elem in list:
 		if elem == e:
 			return True
@@ -21,7 +21,7 @@ list2 = [1,2,3,4,5,6,7]
 list3 = [1,2,3,5]
 
 
-# Create a function which determines weather a list is contained in another list.
+# Create a function which determines whether a list is contained in another list.
 # Some tips:
 # - use the contains function defined above in your function.
 # - you want to check if each element in the sublist is contained in the list
