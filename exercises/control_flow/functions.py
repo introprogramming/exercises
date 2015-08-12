@@ -16,7 +16,7 @@ def boolean_function(bool_variable):
 
 def print_my_coords(x = 0, y = 0):
 	""" function with 2 parameters and no return
-	it also have default values if one or the other parameter where not to be used"""
+	it also have default values if one or the other parameter were not to be used"""
 	print("Coords (%d;%d)" % (x,y))
 
 
