@@ -1,6 +1,6 @@
 #!/bin/python
-# This is a program called fizzbuzz. It is often used to test basic programming capabilitys.
-# The specification are as follows:
+# This is a program called fizzbuzz. It is often used to test basic programming capabilities.
+# The specification is as follows:
 
 # For numbers 1 through 100,
 
