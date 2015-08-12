@@ -1,6 +1,6 @@
 #!/bin/python
-# A program which uses if-cases to determine which numbers rangeing from 1 to 10 the specified integer variable is divisible by.
-# here we also show the modulo operator. it gives the remainder after a divistion. example 42 % 5 = 2 since 42 = 5*x + 2
+# A program which uses if-cases to determine which numbers ranging from 1 to 10 the specified integer variable is divisible by.
+# Here we also show the modulo operator. It gives the remainder after a division. example 42 % 5 = 2 since 42 = 5*x + 2
 
 variable = 42
 
