@@ -1,7 +1,8 @@
 # Tic-Tac-Toe
 
 Spelet Tic-Tac-Toe eller tre-i-rad som många kallar den:
-Två spelare som ska turas om att lägga kryss (X) resp. nolla (O) på ett rutnät. Spelaren som först får tre i rad vinner. 
+Två spelare som ska turas om att lägga kryss (X) resp. nolla (O) på ett rutnät (3x3). Spelaren som först får tre i rad vinner. 
+Programmet läser in vilken ruta man vill placera sitt tecken på.
 
 - **Svårighetsgrad:** 1
 
@@ -9,7 +10,7 @@ Två spelare som ska turas om att lägga kryss (X) resp. nolla (O) på ett rutn�
 0. Fördelaktigt att ha gjort control_flow uppgiften men inget krav  **Svårighetsgrad 1**.
 
 1. Skapa ett rutnät för spelet i konsollen och skriv en funktion printGameArea() som visar den **Svårighetsgrad 1**.
-Tips: Gör det enkelt, använd lista med 9 element
+Tips: Gör det enkelt, använd lista med 9 element. Testa hårdkoda in tecknen och printa ut.
 
 2. Skapa en funktion placeSign() som givet en position och tecken sätter tecknet på rätt position i rutnätet  **Svårighetsgrad 1**.
 
