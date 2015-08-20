@@ -14,7 +14,7 @@ print(list3[0])
 
 # Iterate over all items in a list using a for loop: (you've already seen this. in loop.py The function range(x) returns a list)
 for elem in list2:
-	print(elem)
+    print(elem)
 
 # More information about lists: https://docs.python.org/2/tutorial/datastructures.html#more-on-lists
 

@@ -3,10 +3,10 @@
 
 def contains(list, e):
 	""" determines whether e is contained in the list """
-	for elem in list:
-		if elem == e:
-			return True
-	return False
+    for elem in list:
+        if elem == e:
+            return True
+    return False
 
 
 integer_list = [0,1,2,3]
@@ -29,8 +29,8 @@ list3 = [1,2,3,5]
 
 
 def sublist_contains(list, sublist):
-	# your code here
-	return None
+    # your code here
+    return None
 	
 
 

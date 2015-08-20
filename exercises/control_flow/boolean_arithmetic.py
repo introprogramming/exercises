@@ -18,6 +18,6 @@ boolean_variable = boolean_variable or True
 
 # Usage in if-else-statement
 if boolean_variable:
-	print("boolean_variable is True")
+    print("boolean_variable is True")
 else:
-	print("boolean_variable is False")
+    print("boolean_variable is False")
