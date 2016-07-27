@@ -54,6 +54,10 @@ Vad (utöver en basinstallation av Python 2.7.7) behövs för att uppgiften ska 
 
 Flera alternativa implementationer av samma uppgift är helt okej, det kan tillföra nya perspektiv och idéer. Likaså får ni gärna bygga vidare med fler features på uppgifter som någon annan redan börjat på. Målet är att utforska uppgifterna, inte att "klara" dem.
 
+## Finkornig svårighetsgradering
+
+När övningarna visas på hemsidan sorteras de utifrån svårighetsgraden som är angiven i övningens README-fil. Därutöver kan ordningen på övningarna ändras även inom de olika svårighetsgraderna. Detta görs genom att en rad läggs till i filen `exercises_order` som återfinns under `exercises`. Raden skall innehålla samma text som mappnamnet för övningen. Övningar som inte finns med i denna fil kommer att placeras sist inom respektive svårighetsgrad.
+
 ## Resurser
 
 ### GitHub/git
