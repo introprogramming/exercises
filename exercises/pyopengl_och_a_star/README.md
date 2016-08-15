@@ -103,7 +103,7 @@ Rita grafik med OpenGL och sökalgorithm med A*
 
  Det är kanske uppenbart men viktigt att säga att alla fel måste åtgärdas innan ni fortsätter, syns inget nu kommer inget att synas senare.
  
- 3. **Färg och Texturer**
+3. **Färg och Texturer**
  En vit triangel är kanske inte så imponerande, så för att byta färg på ett hörn kan kommandot *glColor3f( Float red, Float green, Float blue )* sättas innan ett funktionsanropp till *glVertex2f( Float x, Float y )*. Pröva gärna detta.
  
  Men vill vi använda bilder behöver vi först ladda in bilden till en textur som kan ritas på våran fyrhörning. När en textur skapas kommer detta att ske på OpenGLs server, vilket betyder att du kommer inte (som en OpenGL-klient) att ha direkt tillgång till den. Istället kommer du att få ett nummer (*Integer*) som hänvisar till den skapta texturen. Varje gång du sedan vill använda texturen måste du ange detta referensnummer. Ett tips är att skriva detta som en funktion.
