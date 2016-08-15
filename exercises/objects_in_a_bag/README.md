@@ -48,21 +48,21 @@ Nu är variabeln *mitt_objekt* ett id-nummber till en ny Person. Vi kan t.ex. ko
 
 ```python
 	
-	print( mitt_object.name )
+	print( mitt_objekt.name )
 ```
 
 Som då kommer att skriva ut *Tristian* i konsolen om programmet körs.
 
-Man kan givetvis även ändra namnet på samma sätt som i *__init__*, men istället anger vi *mitt_object* som id-nummer:
+Man kan givetvis även ändra namnet på samma sätt som i *__init__*, men istället anger vi *mitt_objekt* som id-nummer:
 
 ```python
 	
-	mitt_object.name = värde
+	mitt_objekt.name = värde
 ```
 
 Fler funktioner kan givetvis läggas till i klassen och flera klasser kan skapas, inte bara en klass som heter *Person*.
 
-För att tillkalla andra funktioner som tillhör objektet skriver man *mitt_object.funktionsNamnHär( argument... )*, detta gör att *self* i den tillkallade funktionen sätts till samma värde som *mitt_objekt*.
+För att tillkalla andra funktioner som tillhör objektet skriver man *mitt_objekt.funktionsNamnHär( argument... )*, detta gör att *self* i den tillkallade funktionen sätts till samma värde som *mitt_objekt*.
 
 Läs mer om klasser i [Pythons dokumentation](https://docs.python.org/2/tutorial/classes.html)
 
