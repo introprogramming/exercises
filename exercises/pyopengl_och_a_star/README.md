@@ -19,18 +19,24 @@ Eftersom att OpenGL bygger på Klient/Server interaktion kommer den delen av upp
 
 1. **Importera moduler**
 Importera följande i källkodsfilen för att få tillgång till OpenGL, GLUT och PIL.
+
+```python
 	
 	from PIL import Image
 	from OpenGL import *
 	from OpenGL.GL import *
 	from OpenGL.GLUT import *
+```
 
 2. **Skapa GLUT-fönster**
 GLUT eller *OpenGL Utility Toolkit* är det som kommer att användas för att skapa ett fönter där OpenGL kan rita i. Detta åstakoms med följande kommandon och deras argumenttyper anges nedan:
+
+```python
 	
 	glutInit( *String* )
 	glutInitWindowSize( *Integer pixel_width*, *Integer pixel_height* )
 	window = glutCreateWindow( *Byte-String window_title* )
+```
 
 Objektet *window* kommer då att ange en referens till fönstret som skapas.
 
@@ -38,10 +44,13 @@ Notera att *glutCreateWindow* tar en *Byte-String* och **inte** en vanlig strän
 
 3. **Tillståndsfunktioner**
 Vi behöver ange vad det skapta fönstret skall göra under dess olika tillstånd, bland annat när det väntar, ritar och byter storlek. Detta gör vi genom att binda funktionsreferenser.
+
+```python
 	
 	glutReshapeFunc( *[function( Integer width, Integer height )]* )
 	glutDisplayFunc( *[function()]* )
 	glutIdleFunc( *[function()]* )
+```
 
 Funktionen som ges till *glutReshapeFunc* kommer att exekveras då fönstret byter storlek. *glutDisplayFunc* kallas när fönstret behöver ritas om. *glutIdleFunc* genomförs när inget annat exekveras. Det finns många fler tillstånd att binda funktioner till, men dessa kan hittas i [GLUTs egna dokumentation](https://www.opengl.org/resources/libraries/glut/).
 
@@ -56,17 +65,22 @@ Skulle programmet nu exekveras kommer ett fönster att visas på skärmen. Progr
 
 1. **Koppla OpenGL till fönster**
 Till att börja med, varje gång som GLUT-fönstret ändrar storlek kommer OpenGL behöva ändra sin renderingsytas storlek samt renderingläge. Detta görs med följande funktioner:
+
+```python
 	
 	glViewport( *Integer offset_x*, *Integer offset_y*, *Integer width*, *Integer height* )
 	glMatrixMode( GL_PROJECTION )
 	glLoadIdentity()
 	glOrtho( 0.0, *Float width*, 0.0, *Float height*, 0.0, 1.0 )
 	glMatrixMode( GL_MODELVIEW )
+```
 
 Notera att här är några värden redan inskrivna, de är nödvändiga. *GL_PROJECTION* och *GL_MODELVIEW* är nämligen två av OpenGLs hundratals konstanter. Vill ni veta mer om dessa hänvisas ni till OpenGLs dokumentation. Kortfattat sätter vi renderingsytan till att rita i 2D över hela GLUT-fönstret.
 
 2. **Rita med OpenGL**
 Varje gång vi skall rendera till fönstret behöver vi först rensa det från skräpvärden. Sedan kan vi rita trianglar och andra primitiva geometriska figurer. Undrar man då hur man ritar en t.ex. en inladdad JPEG/PNG-bild är svaret att dessa måste ritas *på trianglar*. Lyckligtvis använder vi i denna uppgift OpenGLs *intermediate mode*, som i förhållande till de andra metoder som OpenGL erbjuder, har sämre prestanda. Här nedan, låt *w_width* och *w_height* betäckna GLUT-fönstrets nuvarande storlek.
+
+```python
 	
 	glClear( GL_COLOR_BUFFER_BIT )
 	glLoadIdentity()
@@ -79,6 +93,7 @@ Varje gång vi skall rendera till fönstret behöver vi först rensa det från s
 	glEnd()
 	
 	glutSwapBuffers()
+```
 
 Detta kommer att rensa fönstrets färgbuffer (*GL_COLOR_BUFFER_BIT*), återsälla koordinatsystemet (*glLoadIdentity()*) och börja rita ut en fyrhörning med de hörn-koordinater som speciferas mellan *glBegin( GL_QUADS )* och *glEnd()*. Funktionen *glutSwapBuffers()* är det som gör att det ritade innehållet faktiskt skickas till GLUT-fönstret.
 
@@ -90,6 +105,8 @@ Det är kanske uppenbart men viktigt att säga att alla fel måste åtgärdas in
 En vit triangel är kanske inte så imponerande, så för att byta färg på ett hörn kan kommandot *glColor3f( Float red, Float green, Float blue )* sättas innan ett funktionsanropp till *glVertex2f( Float x, Float y )*. Pröva gärna detta.
 
 Men vill vi använda bilder behöver vi först ladda in bilden till en textur som kan ritas på våran fyrhörning. När en textur skapas kommer detta att ske på OpenGLs server, vilket betyder att du kommer inte (som en OpenGL-klient) att ha direkt tillgång till den. Istället kommer du att få ett nummer (*Integer*) som hänvisar till den skapta texturen. Varje gång du sedan vill använda texturen måste du ange detta referensnummer. Ett tips är att skriva detta som en funktion.
+
+```python
 	
 	texture = glGenTextures( 1 )
 	if texture is not 0:
@@ -105,10 +122,13 @@ Men vill vi använda bilder behöver vi först ladda in bilden till en textur so
 		glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST )
 		glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST )
 		glTexImage2D( GL_TEXTURE_2D, 0, 3, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data )
+```
 
 Detta kan kännas mycket för att endast ladda in en bild, men det är nödvändigt för att överföra bilden till OpenGL. Kortfattat behöver du inte veta exakt vad detta gör om du inte vill tillsätta mängder av effekter eller ändra inställningar till texturen, varpå du bör läsa dokumentationen. Men kortfattat öppnar vi en bild via PIL.Image, skapar en textur (*glGenTextures*), säger att hedanefter vill vi använda den i alla sammanhang som involverar tvådimensionella texturer (*glBindTexture*) och sätter ett antal inställningar för filter och utritning (*glTexParameteri*). Variabeln texture kommer då att innehålla referensen till texturen. Komihåg att radera texturen när du inte behöver den längre, med *glDeleteTexture( texture )*.
 
 Nu kan vi uppdatera renderingsfunktionen till att använda den nya texturen.
+
+```python
 	
 	...
 	
@@ -128,6 +148,7 @@ Nu kan vi uppdatera renderingsfunktionen till att använda den nya texturen.
 	glDisable( GL_TEXTURE_2D )
 	
 	...
+```
 
 Först säger vi att vi vill använda texturer istället för färg med *glEnable( GL_TEXTURE_2D )*. Notera att *glColor3f* kommer inte att ha någon verkan tills *glDisable( GL_TEXTURE_2D )* har kallats. *glTexCoord2f* fungerar ungefär som *glColor3f*, men istället för att ta de olika färgkomponenterna tar den istället en koordinat på texturen mellan 0.0 och 1.0. Andra värden kan användas. Om vi t.ex. byter ut 1.0 mot 10.0 skulle texturen återupprepas 10 ggr på fyrhörningen.
 
