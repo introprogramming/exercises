@@ -29,7 +29,7 @@ Så till att börja med kan vi säga att varje objekt av klassen *Person* skall 
 			self.name = "Tristian"
 ```
 
-Detta betyder att när vi skapar ett objekt av typen *Person* kommer '*__init__*' funktionen att tillkallas automatiskt (Det är en process som hanteras av Python och namnet måste stämma exakt. Däremot kan fler argument läggas till.)
+Detta betyder att när vi skapar ett objekt av typen *Person* kommer ____init____ funktionen att tillkallas automatiskt (Det är en process som hanteras av Python och namnet måste stämma exakt. Däremot kan fler argument läggas till.)
 
 Som ni märker finns det ett argument till funktionen som här kallas för *self*. Detta är en referens till objektet som precis skapats. En referens kan ses som ett id-nummer, alla objekt som kommer från mallen *Person* får ett unikt id för att urskilja dem. Detta betyder att alla funktioner som läggs i en klass måste ha *self* som första argument, så att vi vet vilket objekt som vi för tillfällt hanterar när en funktion skall exekveras i klassen.
 
@@ -53,7 +53,7 @@ Nu är variabeln *mitt_objekt* ett id-nummber till en ny Person. Vi kan t.ex. ko
 
 Som då kommer att skriva ut *Tristian* i konsolen om programmet körs.
 
-Man kan givetvis även ändra namnet på samma sätt som i *__init__*, men istället anger vi *mitt_objekt* som id-nummer:
+Man kan givetvis även ändra namnet på samma sätt som i ____init____, men istället anger vi *mitt_objekt* som id-nummer:
 
 ```python
 	
