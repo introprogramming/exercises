@@ -13,15 +13,15 @@ I denna uppgift skapar vi ett program som tillåter dig att skapa och lägga fö
 
 En *klass* kan ses som en mall. Det är mycket enkelt att skapa en klass i Python, allt som behövs är att skriva *class* följt av namnet på klassen:
 	
-	*class Klassnamn:*
+	class Klassnamn:
 
 Med denna mall kan vi skapa objekt som följer de regler som läggs i klassen. T.ex. kan vi säga att klassen har ett namn, då kommer alla objekt som skapas från klassen få ett namn. Men vi kan också säga att ett objekt har ett visst beteende genom att lägga funktioner i klassen.
 
 Så till att börja med kan vi säga att varje objekt av klassen *Person* skall ha ett namn med följande mall/klass:
-
- *class *Person:*
-   *def __init__( self ):*
-      *self.name = "Tristian"*
+	
+	class Person:
+		def __init__( self ):
+			self.name = "Tristian"
 
 Detta betyder att när vi skapar ett objekt av typen *Person* kommer '*__init__*' funktionen att tillkallas automatiskt (Det är en process som hanteras av Python och namnet måste stämma exakt. Däremot kan fler argument läggas till.)
 
@@ -30,20 +30,20 @@ Som ni märker finns det ett argument till funktionen som här kallas för *self
 Även ser ni att vi kan lägga till ett attribut (i vårt fall *name*) på objektet genom att skriva *self.name = värde*. Detta betyder "till det objekt med id-nummber *self*, hämta attributet *name* och sätt det till *värde*".
 
 För att nu skapa ett objekt av typen *Person* kallar man på klassen som en funktion, som då retunerar id-nummret till det nya objektet.
- 
- *mitt_objekt = Person()*
+	
+	mitt_objekt = Person()
 
 Notera att vi inte angav argumentet *self*, det gör Python automatiskt för dig.
 
 Nu är variabeln *mitt_objekt* ett id-nummber till en ny Person. Vi kan t.ex. kolla objektets namn med följande:
-
-*print( mitt_object.name )*
+	
+	print( mitt_object.name )
 
 Som då kommer att skriva ut *Tristian* i konsolen om programmet körs.
 
 Man kan givetvis även ändra namnet på samma sätt som i *__init__*, men istället anger vi *mitt_object* som id-nummer:
-
-*mitt_object.name = värde*
+	
+	mitt_object.name = värde
 
 Fler funktioner kan givetvis läggas till i klassen och flera klasser kan skapas, inte bara en klass som heter *Person*.
 
@@ -60,9 +60,10 @@ Vi kommer att skapa två klasser (*Item* och *Bag*) och ett litet testprogram.
 1. Skapa en klass som heter *Item* och säg i *__init__( self, name, color, weight )* att den skall ha attributen *name*, *color* och *weight* som sätts till motsvarande funktionsargument.
 
 2. Ge klassen en funktion *getDescription( self )* som retunerar en sträng i följande format:
- "[name: *objektets_namn*, color: *objektets_färg*, weight: *objektets_vikt*]"
 
- [Läs mer om att använda funktioner här](https://docs.python.org/2/tutorial/controlflow.html#defining-functions)
+"[name: *objektets_namn*, color: *objektets_färg*, weight: *objektets_vikt*]"
+
+[Läs mer om att använda funktioner här](https://docs.python.org/2/tutorial/controlflow.html#defining-functions)
 
 ### Skapa en klass 'Bag'
 
@@ -75,19 +76,19 @@ Vi kommer att skapa två klasser (*Item* och *Bag*) och ett litet testprogram.
 ### Testprogram
 
 Följande programbit skall nu kunna exekveras utan problem.
-
-*bag = Bag( "Min säck" )*
-*item_1 = Item( "Fisk", "röd", 10.0 )*
-*item_2 = Item( "Hund", "brun", 20.0 )*
-*item_3 = Item( "Fredrik", "grön", 9001.0 )*
-*print( bag.getDescription() )*
+	
+	bag = Bag( "Min säck" )
+	item_1 = Item( "Fisk", "röd", 10.0 )
+	item_2 = Item( "Hund", "brun", 20.0 )
+	item_3 = Item( "Fredrik", "grön", 9001.0 )
+	print( bag.getDescription() )
 
 Och borde ge ett liknande resultat i konsolen:
 
-*'Min säck' contains the following:*
- *- [name: Fisk, color: röd, weight: 10.0]*
- *- [name: Hund, color: brun, weight: 20.0]*
- *- [name: Fredrik, color: grön, weight: 9001.0]*
+	'Min säck' contains the following:
+		- [name: Fisk, color: röd, weight: 10.0]
+		- [name: Hund, color: brun, weight: 20.0]
+		- [name: Fredrik, color: grön, weight: 9001.0]
 
 ## Utökningar
 
