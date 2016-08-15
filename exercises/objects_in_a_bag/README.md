@@ -53,7 +53,7 @@ Nu är variabeln *mitt_objekt* ett id-nummber till en ny Person. Vi kan t.ex. ko
 
 Som då kommer att skriva ut *Tristian* i konsolen om programmet körs.
 
-Man kan givetvis även ändra namnet på samma sätt som i ____init____, men istället anger vi *mitt_objekt* som id-nummer:
+Man kan givetvis även ändra namnet på samma sätt som i __init __, men istället anger vi *mitt_objekt* som id-nummer:
 
 ```python
 	
@@ -72,7 +72,7 @@ Vi kommer att skapa två klasser (*Item* och *Bag*) och ett litet testprogram.
 
 ### Skapa en klass 'Item'
 
-1. Skapa en klass som heter *Item* och säg i *__init__( self, name, color, weight )* att den skall ha attributen *name*, *color* och *weight* som sätts till motsvarande funktionsargument.
+1. Skapa en klass som heter *Item* och säg i *__init __( self, name, color, weight )* att den skall ha attributen *name*, *color* och *weight* som sätts till motsvarande funktionsargument.
 
 2. Ge klassen en funktion *getDescription( self )* som retunerar en sträng i följande format:
 
@@ -82,7 +82,7 @@ Vi kommer att skapa två klasser (*Item* och *Bag*) och ett litet testprogram.
 
 ### Skapa en klass 'Bag'
 
-1. Skapa en klass som heter *Bag* och säg i *__init__( self, label )* att den skall ha attributen *items*, *label*. Attributet *label* sätts till motsvarande funktionsargument medan attributet *items* sätts till en tom lista (denna kommer sedan att innehålla referenser till objekt av typen *Item*).
+1. Skapa en klass som heter *Bag* och säg i *__init __( self, label )* att den skall ha attributen *items*, *label*. Attributet *label* sätts till motsvarande funktionsargument medan attributet *items* sätts till en tom lista (denna kommer sedan att innehålla referenser till objekt av typen *Item*).
 
 2. Skapa en funktion som heter *addItem( self, item_object )* som lägger till *item_object* i sitt attribut *items*, som är en lista.
 
