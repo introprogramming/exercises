@@ -47,9 +47,9 @@ Vi behöver ange vad det skapta fönstret skall göra under dess olika tillstån
 
 ```python
 	
-	glutReshapeFunc( *[function( Integer width, Integer height )]* )
-	glutDisplayFunc( *[function()]* )
-	glutIdleFunc( *[function()]* )
+	glutReshapeFunc( *function( Integer width, Integer height )* )
+	glutDisplayFunc( *function()* )
+	glutIdleFunc( *function()* )
 ```
 
 Funktionen som ges till *glutReshapeFunc* kommer att exekveras då fönstret byter storlek. *glutDisplayFunc* kallas när fönstret behöver ritas om. *glutIdleFunc* genomförs när inget annat exekveras. Det finns många fler tillstånd att binda funktioner till, men dessa kan hittas i [GLUTs egna dokumentation](https://www.opengl.org/resources/libraries/glut/).
