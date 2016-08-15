@@ -12,8 +12,11 @@ I denna uppgift skapar vi ett program som tillåter dig att skapa och lägga fö
 ## Snabb introduktion - Att skapa ett objekt genom en klass
 
 En *klass* kan ses som en mall. Det är mycket enkelt att skapa en klass i Python, allt som behövs är att skriva *class* följt av namnet på klassen:
+
+```python
 	
 	class Klassnamn:
+```
 
 Med denna mall kan vi skapa objekt som följer de regler som läggs i klassen. T.ex. kan vi säga att klassen har ett namn, då kommer alla objekt som skapas från klassen få ett namn. Men vi kan också säga att ett objekt har ett visst beteende genom att lägga funktioner i klassen.
 
