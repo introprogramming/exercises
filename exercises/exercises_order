@@ -1,6 +1,7 @@
 control_flow
 fibonacci
 robbers_language
+objects_in_a_bag
 mp3player
 personnr
 pick_game
@@ -15,5 +16,7 @@ yatzy
 adventure
 chat
 plot_2d
+battleship
 survival
 tetris
+pyopengl_och_a_star
