@@ -39,7 +39,7 @@ def perform_action(input):
 
 
 def await_action():
-    input = raw_input("> ").split()
+    input = input("> ").split()
 
     for case in switch(input[0]):
         if case('quit'):
