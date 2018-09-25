@@ -10,33 +10,33 @@ def __haunted_forest_pick(input):
         for case in switch(input[0]):
             if case('mushroom', 'mushrooms'):
                 if haunted_forest.current_state_ix == 0:
-                    print "Mmm... Mushrooms!\n"
+                    print ("Mmm... Mushrooms!\n")
                     haunted_forest.set_state(1)
                 else:
-                    print "Where have all the mushrooms gone? Young girls picked them everyone!"
+                    print ("Where have all the mushrooms gone? Young girls picked them everyone!")
                 break
             if case('tree','trees'):
-                print "You're not that strong, silly!"
+                print ("You're not that strong, silly!")
                 break
             if case('stuff'):
-                print "Some stuff stuffed away."
+                print ("Some stuff stuffed away.")
                 break
             else:
-                print "Ain't no " + input[0] + " around here"
+                print ("Ain't no " + input[0] + " around here")
     else:
-        print "Pick-pickety-pick... pickaxe?"
+        print ("Pick-pickety-pick... pickaxe?")
 
 def __haunted_forest_sing(input):
     if input:
         for case in switch(input[0]):
             if case('halelujah'):
-                print "The world has become a brighter place!"
+                print ("The world has become a brighter place!")
                 haunted_forest.set_state(2)
                 break
             else:
-                print "*sings* " + input[1]
+                print ("*sings* " + input[1])
     else:
-                print "I'm siiiiiiingin' in the rain!"
+                print ("I'm siiiiiiingin' in the rain!")
         
 
 haunted_forest = Location('The Haunted Forest', 
@@ -67,7 +67,7 @@ haunted_forest = Location('The Haunted Forest',
 """
 
 def __shining_plains_win(input):
-    print "Awesome! You have won the game!"
+    print ("Awesome! You have won the game!")
     sys.exit()
 
 shining_plains = Location('The Shining Plains',

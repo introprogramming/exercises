@@ -14,7 +14,7 @@ def move(direction):
         current_location = new_loc
         here = locations[current_location]
     else:
-        print "No route leading " + direction + ".\n"
+        print ("No route leading " + direction + ".\n")
 
     look()
 
@@ -25,11 +25,11 @@ def look(direction=""):
             view = locations[target].short_view()
         else:
             view = "There's nothing there."
-        print view
+        print (view)
     else:
-        print here.name
-        print here.long_view()
-        print ""
+        print (here.name)
+        print (here.long_view())
+        print ("")
         here.print_exits()
     
 
@@ -43,14 +43,14 @@ def await_action():
 
     for case in switch(input[0]):
         if case('quit'):
-            print "Bye!"
+            print ("Bye!")
             return
 
         if case('go','move'):
             if len(input) > 1:
                 move(input[1])
             else:
-                print "Where to?"
+                print ("Where to?")
             break
 
         if case('look'):

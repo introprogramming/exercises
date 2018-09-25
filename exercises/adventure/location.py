@@ -47,17 +47,17 @@ class Location:
         
         for case in switch(len(possible_dirs)):
             if case(0):
-                print "All dressed up and nowhere to go!"
+                print ("All dressed up and nowhere to go!")
                 break
             if case(1):
-                print "There's an exit " + possible_dirs[0]
+                print ("There's an exit " + possible_dirs[0])
                 break
             else:
-                print "There are exits ",
-                print possible_dirs[0],
+                print ("There are exits "),
+                print (possible_dirs[0]),
                 for ex in possible_dirs[1:]:
-                    print ", " + ex,
-                print "."
+                    print (", " + ex),
+                print (".")
         
 
 
@@ -66,7 +66,7 @@ class Location:
         if (input[0] in possible_actions):
             possible_actions[input[0]](input[1:])
         else:
-            print "Interesting."
+            print ("Interesting.")
 
     def set_state(self, new_state):
         self.current_state_ix = new_state
