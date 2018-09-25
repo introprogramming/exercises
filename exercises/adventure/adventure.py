@@ -39,29 +39,29 @@ def perform_action(input):
 
 
 def await_action():
-    input = input("> ").split()
+    user_input = input("> ").split()
 
-    for case in switch(input[0]):
+    for case in switch(user_input[0]):
         if case('quit'):
             print ("Bye!")
             return
 
         if case('go','move'):
-            if len(input) > 1:
-                move(input[1])
+            if len(user_input) > 1:
+                move(user_input[1])
             else:
                 print ("Where to?")
             break
 
         if case('look'):
-            if len(input) > 1:
-                look(input[1])
+            if len(user_input) > 1:
+                look(user_input[1])
             else:
                 look()
             break
 
         # We have a custom action
-        perform_action(input)
+        perform_action(user_input)
     
     await_action()
 
