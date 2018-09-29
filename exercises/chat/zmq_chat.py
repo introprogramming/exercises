@@ -18,14 +18,12 @@ def receive_loop(connect_to, channel):
     try:
         subscribe.connect(connect_to)
     except zmq.error.ZMQError:
-        print
-        "## Trouble connecting... :P Check if the adress is correct."
+        print("## Trouble connecting... :P Check if the adress is correct.")
         return
 
     while True:
         # print "Awating message..."
-        print
-        subscribe.recv()
+        print(subscribe.recv())
         time.sleep(0.005)
 
 
@@ -44,13 +42,12 @@ def start_listener(connect_to):
 
 def connect():
     """Parses input for an ip and a port. Uses the input to start a connection."""
-    print
-    "Connect to..."
-    address = raw_input("address (ip): ")
+    print("Connect to...")
+    address = input("address (ip): ")
     if address == "":
         address = "localhost"
     try:
-        port = int(raw_input("port: "))
+        port = int(input("port: "))
         connect_to = "tcp://%s:%s" % (address, port)
     except:
         print
@@ -88,7 +85,7 @@ def io_loop():
     help()
     while True:
         global filter
-        input = raw_input()
+        input = input()
         if input.startswith('\\'):
             # command
             if input.startswith('\\exit'):
