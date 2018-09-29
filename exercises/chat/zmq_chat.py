@@ -50,8 +50,7 @@ def connect():
         port = int(input("port: "))
         connect_to = "tcp://%s:%s" % (address, port)
     except:
-        print
-        "## Error! Should look like '192.168.0.1 5556'"
+        print("## Error! Should look like '192.168.0.1 5556'")
         return
 
     start_listener(connect_to)
