@@ -59,20 +59,19 @@ def connect():
 
 def help():
     """Prints available commands and what they do."""
-    print
-    """
+    print("""
            Commands:
            \\exit\tExits the program
            \\help\tPrints this help
            \\connect\tConnect to another chat client
            \\disconnect <ch_name>\tDisconnects from all clients using this channel
-           \\channel <ch_name>\tWrites to this chat channel only"""
+           \\channel <ch_name>\tWrites to this chat channel only""")
 
 
 def disconnect(channel):
     """Stops all processes that listens on a certain channel."""
     c_lock.acquire()
-    # print "## Disconnecting from '"+channel+"'..."
+    # print("## Disconnecting from '"+channel+"'...")
     for entry in connections:
         if entry['channel'] == channel:
             connections.remove(entry)
@@ -96,26 +95,22 @@ def io_loop():
                 try:
                     channel = input.split(' ')[1]
                 except:
-                    print
-                    "## Type '\\disconnect <channel_name>'"
+                    print("## Type '\\disconnect <channel_name>'")
                 disconnect(channel)
             elif input.startswith('\\channel'):
                 try:
                     filter = input.split(' ')[1]
                 except:
-                    print
-                    "## Type '\\channel <channel_name>'"
+                    print("## Type '\\channel <channel_name>'")
             elif input.startswith('\\help'):
                 help()
             else:
-                print
-                "## Unrecognized command %s. Type `\\help` to see what commands are available." % input
+                print("## Unrecognized command %s. Type `\\help` to see what commands are available." % input)
         else:
             tracker = publish.send("%s> %s" % (filter, input), copy=False, track=True)
             tracker.wait(5)
             if not tracker.done:
-                print
-                "## Timeout after 5 sec... :P"
+                print("## Timeout after 5 sec... :P")
 
     # Sockets terminate implicitly at garbage collection
     # Would be done here otherwise
@@ -135,9 +130,7 @@ if __name__ == '__main__':
         port = sys.argv[1]
 
     publish.bind("tcp://*:%s" % port)
-    print
-    "Local IP:", socket.gethostbyname(socket.gethostname())
-    print
-    "Port:", port
+    print("Local IP:", socket.gethostbyname(socket.gethostname()))
+    print("Port:", port)
 
     io_loop()

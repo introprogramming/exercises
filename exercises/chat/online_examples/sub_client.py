@@ -17,8 +17,7 @@ if len(sys.argv) > 2:
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
-print
-"Collecting updates from weather server..."
+print("Collecting updates from weather server...")
 socket.connect("tcp://localhost:%s" % port)
 
 if len(sys.argv) > 2:
@@ -34,8 +33,6 @@ for update_nbr in range(5):
     string = socket.recv()
     topic, messagedata = string.split()
     total_value += int(messagedata)
-    print
-    topic, messagedata
+    print(topic, messagedata)
 
-print
-"Average messagedata value for topic '%s' was %dF" % (topicfilter, total_value / update_nbr)
+print("Average messagedata value for topic '%s' was %dF" % (topicfilter, total_value / update_nbr))
