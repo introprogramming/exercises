@@ -1,9 +1,8 @@
-#http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pair.html
+# http://learning-0mq-with-pyzmq.readthedocs.org/en/latest/pyzmq/patterns/pair.html
+
+import time
 
 import zmq
-import random
-import sys
-import time
 
 port = "5556"
 context = zmq.Context()
@@ -13,5 +12,6 @@ socket.bind("tcp://*:%s" % port)
 while True:
     socket.send("Server message to client3")
     msg = socket.recv()
-    print msg
+    print
+    msg
     time.sleep(1)
