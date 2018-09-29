@@ -258,8 +258,8 @@ def updateHeldBoat():
         h = bounds[3]
         deselectTiles()
         if boatFits(x, y, w, h, side=(GAME_MODE % 2)):
-            for ty in xrange(y, y + h):
-                for tx in xrange(x, x + w):
+            for ty in range(y, y + h):
+                for tx in range(x, x + w):
                     selectTile(tx, ty)
 
 
@@ -283,10 +283,10 @@ def start():
     global SIZE
     TILES = []
     TILE_MAP = {}
-    for y in xrange(0, HEI):
+    for y in range(0, HEI):
         xs = []
         TILES.append(xs)
-        for x in xrange(0, WID):
+        for x in range(0, WID):
             tile = Tile(x, y)
             xs.append(tile)
             TILE_MAP[tile.tag] = tile

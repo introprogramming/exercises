@@ -332,7 +332,7 @@ def ctAABB(pos0, size0, r0, pos1, size1, r1):
     pss = (a0, a1, a2, a3, b0, b1, b2, b3)
     min_len = sys.float_info.max
     min_norm = (1, 0)
-    for i in xrange(0, 8):
+    for i in range(0, 8):
         d = axs[i]
         p = pss[i]
         min_a = sys.float_info.max
@@ -369,10 +369,10 @@ def ctCollisionPass(name):
     global __OBJECTS
     ls = list(__OBJECTS)
     ln = len(ls)
-    for i in xrange(0, ln):
+    for i in range(0, ln):
         tag0 = ls[i]
         obj0 = ctGetObject(tag0)
-        for n in xrange(i + 1, ln):
+        for n in range(i + 1, ln):
             tag1 = ls[n]
             obj1 = ctGetObject(tag1)
             # Make sure only solid object collide
