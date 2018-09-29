@@ -84,30 +84,30 @@ def io_loop():
     help()
     while True:
         global filter
-        input = input()
-        if input.startswith('\\'):
+        inp = input()
+        if inp.startswith('\\'):
             # command
-            if input.startswith('\\exit'):
+            if inp.startswith('\\exit'):
                 break
-            elif input.startswith('\\connect'):
+            elif inp.startswith('\\connect'):
                 connect()
-            elif input.startswith('\\disconnect'):
+            elif inp.startswith('\\disconnect'):
                 try:
-                    channel = input.split(' ')[1]
+                    channel = inp.split(' ')[1]
                 except:
                     print("## Type '\\disconnect <channel_name>'")
                 disconnect(channel)
-            elif input.startswith('\\channel'):
+            elif inp.startswith('\\channel'):
                 try:
-                    filter = input.split(' ')[1]
+                    filter = inp.split(' ')[1]
                 except:
                     print("## Type '\\channel <channel_name>'")
-            elif input.startswith('\\help'):
+            elif inp.startswith('\\help'):
                 help()
             else:
-                print("## Unrecognized command %s. Type `\\help` to see what commands are available." % input)
+                print("## Unrecognized command %s. Type `\\help` to see what commands are available." % inp)
         else:
-            tracker = publish.send("%s> %s" % (filter, input), copy=False, track=True)
+            tracker = publish.send("%s> %s" % (filter, inp), copy=False, track=True)
             tracker.wait(5)
             if not tracker.done:
                 print("## Timeout after 5 sec... :P")
