@@ -25,7 +25,7 @@ if len(sys.argv) > 2:
 
 # Subscribe to zipcode, default is NYC, 10001
 topicfilter = "10001"
-socket.setsockopt(zmq.SUBSCRIBE, topicfilter)
+socket.setsockopt_string(zmq.SUBSCRIBE, topicfilter)
 
 # Process 5 updates
 total_value = 0
