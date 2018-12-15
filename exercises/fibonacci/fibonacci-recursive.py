@@ -1,8 +1,8 @@
-input = int(raw_input("Enter a number: "));
+input = int(input("Enter a number: "));
 # Alternatively:
 # input = input("Enter a number; ");
 # The difference is that input() parameter is evaluated as a command,
-# whereas raw_input() evaluates the parameter as a string
+# whereas input() evaluates the parameter as a string
 
 
 def fibonacci_n(prev, curr, stop_after):
@@ -27,4 +27,4 @@ def next_fibonacci(prev, curr, stop_after):
         return prev;
     return next_fibonacci(curr, curr + prev, stop_after)
     
-print next_fibonacci(0, 1, input);
+print(next_fibonacci(0, 1, input))
