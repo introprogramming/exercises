@@ -76,8 +76,8 @@ pnr = "811218-9876"
 if len(sys.argv) > 1:
     pnr = sys.argv[1]
 else:
-    print "Uses default number: ", pnr
+    print("Uses default number: ", pnr)
 
 a = check(pnr)
 
-print a[1]
+print(a[1])
