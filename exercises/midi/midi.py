@@ -69,17 +69,17 @@ def main():
     pygame.init()
     midi.init()
 
-    print "Number of MIDI devices:", midi.get_count()
+    print("Number of MIDI devices:", midi.get_count())
     if midi.get_count() == 0:
-        print "No MIDI devices detected :P"
+        print("No MIDI devices detected :P")
         return
     
     out_device = midi.get_default_output_id()
     if out_device == -1:
-        print "No MIDI output device detected :P"
+        print("No MIDI output device detected :P")
         return
     
-    print "Uses device no:", out_device
+    print("Uses device no:", out_device)
     try:
         output = midi.Output( out_device )
         output.set_instrument( instrument )

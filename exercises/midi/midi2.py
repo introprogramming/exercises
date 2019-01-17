@@ -67,30 +67,30 @@ class Keyboard:
         self.volume = self.volume + 5
         if self.volume > 125:
             self.volume = 125
-        print "Volume", self.volume
+        print("Volume", self.volume)
         
     def decr_volume(self):
         """Decrease volume (-5). Min == 0"""
         self.volume = self.volume - 5
         if self.volume < 0:
             self.volume = 0
-        print "Volume", self.volume
+        print("Volume", self.volume)
     
     def incr_instrument(self):
         """Change instrument (+1)"""
         self.instrument = (self.instrument + 1)%128
         self.out.set_instrument(self.instrument)
-        print "Instrument", self.instrument
+        print("Instrument", self.instrument)
     
     def decr_instrument(self):
         """Change instrument (-1)"""
         self.instrument = (self.instrument - 1)%128
         self.out.set_instrument(self.instrument)
-        print "Instrument", self.instrument
+        print("Instrument", self.instrument)
 
 def help():
     """Help function."""
-    print """
+    print(""")
 -------------------------------------
 # Midi keyboard.
 
@@ -101,7 +101,7 @@ Change instrument: 'c'/'v'
 Increase/decrease volume: 'b'/'n'
 
 Press 'h' to see this help again.
--------------------------------------"""
+-------------------------------------""")
 
 def io_loop(keyboard):
     """Main program loop. Handles IO."""
@@ -145,17 +145,17 @@ def main():
     pygame.init()
     midi.init()
 
-    print "Number of MIDI devices:", midi.get_count()
+    print("Number of MIDI devices:", midi.get_count())
     if midi.get_count() == 0:
-        print "No MIDI devices detected :P"
+        print("No MIDI devices detected :P")
         return
     
     out_device = midi.get_default_output_id()
     if out_device == -1:
-        print "No MIDI output device detected :P"
+        print("No MIDI output device detected :P")
         return
     
-    print "Uses device no:", out_device
+    print("Uses device no:", out_device)
     keyboard = Keyboard(out_device, instrument)
     
     try:
