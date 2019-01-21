@@ -90,7 +90,7 @@ class Keyboard:
 
 def help():
     """Help function."""
-    print(""")
+    print("""
 -------------------------------------
 # Midi keyboard.
 
