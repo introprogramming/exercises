@@ -13,7 +13,7 @@ def receive_loop(connect_to, channel):
     """Connects to a client on this channel. Listens for and prints messages indefinitely."""
     local_context = zmq.Context()
     subscribe = local_context.socket(zmq.SUB)
-    subscribe.setsockopt(zmq.SUBSCRIBE, channel)
+    subscribe.setsockopt(zmq.SUBSCRIBE, bytes(channel, 'utf-8'))
 
     try:
         subscribe.connect(connect_to)
@@ -48,7 +48,7 @@ def connect():
         address = "localhost"
     try:
         port = int(input("port: "))
-        connect_to = "tcp://%s:%s" % (address, port)
+        connect_to = "tcp://{}:{}".format(address, port)
     except:
         print("## Error! Should look like '192.168.0.1 5556'")
         return
@@ -104,9 +104,9 @@ def io_loop():
             elif inp.startswith('\\help'):
                 help()
             else:
-                print("## Unrecognized command %s. Type `\\help` to see what commands are available." % inp)
+                print("## Unrecognized command {}. Type `\\help` to see what commands are available.".format(inp))
         else:
-            tracker = publish.send("%s> %s" % (filter, inp), copy=False, track=True)
+            tracker = publish.send(bytes("{}> {}".format(filter, inp), 'utf-8'), copy=False, track=True)
             tracker.wait(5)
             if not tracker.done:
                 print("## Timeout after 5 sec... :P")
@@ -124,11 +124,11 @@ if __name__ == '__main__':
     main_context = zmq.Context()
     publish = main_context.socket(zmq.PUB)
 
-    port = 5556
+    port = 5557
     if len(sys.argv) > 1:
         port = sys.argv[1]
 
-    publish.bind("tcp://*:%s" % port)
+    publish.bind("tcp://*:{}".format(port))
     print("Local IP:", socket.gethostbyname(socket.gethostname()))
     print("Port:", port)
 

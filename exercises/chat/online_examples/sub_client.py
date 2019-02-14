@@ -18,10 +18,10 @@ context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
 print("Collecting updates from weather server...")
-socket.connect("tcp://localhost:%s" % port)
+socket.connect("tcp://localhost:{}".format(port))
 
 if len(sys.argv) > 2:
-    socket.connect("tcp://localhost:%s" % port1)
+    socket.connect("tcp://localhost:{}".format(port))
 
 # Subscribe to zipcode, default is NYC, 10001
 topicfilter = "10001"
@@ -34,5 +34,4 @@ for update_nbr in range(5):
     topic, messagedata = string.split()
     total_value += int(messagedata)
     print(topic, messagedata)
-
-print("Average messagedata value for topic '%s' was %dF" % (topicfilter, total_value / update_nbr))
+    print("Average messagedata value for topic '{}' was {}F".format(topicfilter, (total_value / update_nbr)))
