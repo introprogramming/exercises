@@ -7,7 +7,7 @@ import zmq
 port = "5556"
 context = zmq.Context()
 socket = context.socket(zmq.PAIR)
-socket.connect("tcp://localhost:%s" % port)
+socket.connect("tcp://localhost:{}".format(port))
 
 while True:
     msg = socket.recv()
