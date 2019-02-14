@@ -12,7 +12,6 @@ if variable % 5 == 0:
 
 if variable % 6 == 0:
     print("divisible by 6")
-    
+
 if variable % 7 == 0:
     print("divisible by 7")
-

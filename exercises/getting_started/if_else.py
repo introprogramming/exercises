@@ -1,5 +1,5 @@
 #!/bin/python
-# A program just to show the difference between mulitple if-statements and a larger if-else-statement
+# A program to show the difference between mulitple if-statements and a larger if-else-statement (see also if.py).
 
 variable = 42
 
@@ -12,4 +12,4 @@ elif variable % 6 == 0:
 elif variable % 7 == 0:
     print("Divisible by 7")
 else:
-    print("Not less than or equal to 5 nor divisible by any number int the range [5-7]")
+    print("Not less than or equal to 5 nor divisible by any number in the range [5-7]")
