@@ -19,17 +19,17 @@ I denna uppgiften kommer ni att självständigt skapa en implementation av *Batt
 
 Följande skall finnas i spelet:
 	
- 1. Spelet skall börja med att båda spelarna plaserar sina skepp på sin sida av spelplanen utan att motståndaren kan se skeppen.
+ 1. Spelet skall börja med att båda spelarna placerar sina skepp på sin sida av spelplanen utan att motståndaren kan se skeppen.
 
- 2. Ett skepp skall kunna roteras under plaseringssekvensen.
+ 2. Ett skepp skall kunna roteras under placeringssekvensen.
 
  3. När spelaren är klar kan inte dennes skepp flyttas.
  
  4. När båda spelarna har plaserat sina skepp börjar stridsläget.
  
- 5. Varje spelare tar tur om att försöka skjuta på motståndarens skepp, vare sig man träffar en skeppsdel eller inte skall detta markeras, givetvis med olika markeringar. Man kan alltid se sina tidigare markeringar under sin egen tur, men inte under motståndarens.
+ 5. Varje spelare turas om att försöka skjuta på motståndarens skepp, vare sig man träffar en skeppsdel eller inte skall detta markeras, givetvis med olika markeringar. Man kan alltid se sina tidigare markeringar under sin egen tur, men inte under motståndarens.
 
- 6. När alla en spelares skeppsdelar har sänkts vinner motståndaren och spelet avslutas, alternativt börjar om.
+ 6. När alla av någon spelares skepsdelar har sänkts vinner motståndaren och spelet avslutas, alternativt börjar om.
 
  7. På sin egen runda kan man se sina egna skepp, som då är markerade på de delar som motståndaren träffat, men
     motståndarens missade skott syns inte.
