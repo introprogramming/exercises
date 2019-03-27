@@ -9,17 +9,17 @@ def main():
         try:
             number = int(input)
         except ValueError:
-            print "Please enter a valid integer!"
+            print("Please enter a valid integer!")
             input = get_input()
             continue
         if number >= fibonacci[-1]:
-            print next_fibonacci(number)
+            print(next_fibonacci(number))
         else:
-            print find_next_fibonacci(number)
+            print(find_next_fibonacci(number))
         input = get_input()
 
 def get_input():
-    return raw_input("Enter a number or 'exit' to quit: ")
+    return input("Enter a number or 'exit' to quit: ")
 
 def next_fibonacci(stop_after):
     """Iteratively generates the fibonacci sequence, starting where the currently saved series ends, until the fibonacci number that
