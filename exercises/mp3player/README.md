@@ -13,7 +13,7 @@ Ett program som spelar upp musik-filer som mp3 och wav.
 ## Delmoment
 
 1. Importera pygame's musik-bibliotek, [pygame.mixer.music](http://www.pygame.org/docs/ref/music.html). Använd funktionen `load()` för att ladda in en musik-fil. **Svårighetsgrad 1**
-2. Vid `play()` så kommer den laddade filen att börja spelas upp. Programmet kommer dock att avslutas innan den hinner spela färdigt (eller ens börja spela). Därför behöver programmet vänta på input från användaren innan den får stängas av. Använd standard-funktionen `raw_input()` för detta. **Svårighetsgrad 1**
+2. Vid `play()` så kommer den laddade filen att börja spelas upp. Programmet kommer dock att avslutas innan den hinner spela färdigt (eller ens börja spela). Därför behöver programmet vänta på input från användaren innan den får stängas av. Använd standard-funktionen `input()` för detta. **Svårighetsgrad 1**
 
 ## Utbyggnad
 * Låt användaren välja vilken fil som ska spelas upp genom att ange det som ett argument till programmet:  
