@@ -9,7 +9,7 @@ TOTAL_DICE = 5
 
 def read_name(ix):
     """Reads player name from CLI, returns string."""
-    return raw_input( "What is your name (Player" + str(ix) + ")?\n\t")
+    return input( "What is your name (Player" + str(ix) + ")?\n\t")
 
 def start(players, score):
     """Read player names from CLI. Initiate dictionary for each player"""
@@ -41,13 +41,13 @@ def play_turn(player_name, score):
         2. Choose which dice to keep and which to throw anew
         3. Count points
     """
-    print "\n-------------------------"
-    print "Player "+player_name
+    print("\n-------------------------")
+    print("Player "+player_name)
     
     used = ""
     for entry in score[player_name]:
         used += " " + str(entry)
-    print "You have already used:" + used
+    print("You have already used:" + used)
     
     t = 3
     dice_to_throw = TOTAL_DICE
@@ -62,14 +62,14 @@ def play_turn(player_name, score):
         if t == 0:
             continue
         
-        keep = string_to_digit_list(raw_input("Which dice do you want to keep? (Can keep any or all, type numbers)\n\t"))
+        keep = string_to_digit_list(input("Which dice do you want to keep? (Can keep any or all, type numbers)\n\t"))
         
         check = {}
         for ix in keep:
             if str(ix) in check:
                 #attempt cheating
-                print "Cannot pick the same dice more than once! "
-                print str(ix) + " has already been picked."
+                print("Cannot pick the same dice more than once! ")
+                print(str(ix) + " has already been picked.")
                 continue
                 
             check[str(ix)] = 0
@@ -79,7 +79,7 @@ def play_turn(player_name, score):
         if dice_to_throw <= 0:
             break
     
-    print "Finally:"
+    print("Finally:")
     dice_graphic.print_dice(dice)
     scores.points_of(dice, score[player_name])
 
@@ -88,8 +88,8 @@ def play_turn(player_name, score):
 
 def game():
     """Starts a new game of Yatzy"""
-    print "Game: Yatzy!\n"
-    print "\n-------------------------"
+    print("Game: Yatzy!\n")
+    print("\n-------------------------")
     
     num_players = 2
     if len(sys.argv) > 1:
@@ -109,7 +109,7 @@ def game():
             play_turn(player, scoreboard)
         turn = turn - 1
     
-    print "\n-------------------------"
+    print("\n-------------------------")
     scores.print_scores(players, scoreboard)
 
 # Main
