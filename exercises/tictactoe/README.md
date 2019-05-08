@@ -7,7 +7,7 @@ Programmet läser in vilken ruta man vill placera sitt tecken på.
 - **Svårighetsgrad:** 1
 
 ## Delmoment
-0. Fördelaktigt att ha gjort control_flow uppgiften men inget krav  **Svårighetsgrad 1**.
+0. Fördelaktigt att ha gjort getting_started uppgiften men inget krav  **Svårighetsgrad 1**.
 
 1. Skapa ett rutnät för spelet i konsollen och skriv en funktion printGameArea() som visar den **Svårighetsgrad 1**.
 Tips: Gör det enkelt, använd lista med 9 element. Testa hårdkoda in tecknen och printa ut.
