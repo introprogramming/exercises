@@ -1,19 +1,18 @@
-import Tkinter as Tk
-import tkFileDialog
+import tkinter as Tk
 
 
 # Text Editor Skeleton
 
 def on_new():
     # reset path and delete all text in the text box
-    print "Not implemented"
+    print("Not implemented")
 
 
 def on_open():
     # let user choose what file to open from a dialog (tkFileDialog)
     # replace text in text box with text from file
     # handle cancelling of the dialog responsibely
-    print "Not implemented"
+    print("Not implemented")
 
 
 def on_save():
@@ -21,40 +20,40 @@ def on_save():
     # if the path is already set, save the file using save_file(), otherwise:
     # let user choose a file to save the content in the text box to (tkFileDialog)
     # make sure the path is valid (not empty), save the file using save_file()
-    print "Not implemented"
+    print("Not implemented")
 
 
 def on_save_as():
     # mimic common "save as" behavior
     # almost the same as on_save(), difference: this always opens a file dialog
-    print "Not implemented"
+    print("Not implemented")
 
 
 def get_all_text():
     # returns all text in the text box
     # should be one line of code
     # not neccessary but may make the code in other places nicer
-    print "Not implemented"
+    print("Not implemented")
 
 
 def delete_all_text():
     # deletes all text in the text box
     # should be one line of code
     # not neccessary but may make the code in other places nicer
-    print "Not implemented"
+    print("Not implemented")
 
 
 def save_file(save_path, text):
     # open file in save_path in write mode
     # write the text to the file
     # close the file
-    print "Not implemented"
+    print("Not implemented")
 
 
 def read_file(file_path):
     # open file in file_path
     # return the text
-    print "Not implemented"
+    print("Not implemented")
 
 
 # Initialize application
@@ -83,7 +82,6 @@ menu_bar.add_cascade(label="File", menu=filemenu)
 # BUTTON EXAMPLE
 button = Tk.Button(app, text="Exit", command=quit)
 button.pack(side=Tk.BOTTOM, fill=Tk.X)
-
 
 ######################################################
 

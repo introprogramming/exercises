@@ -7,9 +7,9 @@ Utveckla en textredigerare i Pythons inbyggda GUI-bibliotek.
 ## Delmoment
 
 1. Läs igenom, kör och försök förstå texted.py. **Svårighetsgrad 1**
-2. Lägg till en Text widget så att man kan skriva text. **Svårighetsgrad 1**
-3. Lägg till en Scrollbar widget så att man kan scrolla. **Svårighetsgrad 2**
-4. Implementera en oimplementerad funktion i taget och lägg till antingen knappar eller menyknappar så man kan köra funktionerna från programmet. **Svårighetsgrad 2**
+2. Lägg till en [Text widget](https://www.tutorialspoint.com/python/tk_text.htm) så att man kan skriva text. **Svårighetsgrad 1**
+3. Lägg till en [Scrollbar widget](https://www.tutorialspoint.com/python/tk_scrollbar.htm) så att man kan scrolla. **Svårighetsgrad 2**
+4. Gå igenom de icke-implementerade funktionerna och implementera dem en i taget. Lägg till knappar i användargränssnittet som använder sig av dessa funktioner. **Svårighetsgrad 2**
 5. Öppna källkoden i er textredigerare och redigera titeln (eller något annat) därifrån. **Svårighetsgrad 1**
 
 ## Utbyggnad
