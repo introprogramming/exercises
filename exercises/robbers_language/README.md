@@ -2,16 +2,28 @@
 
 **Svårighetsgrad:** 1
 
-Skriv ett program som översätter från svenska till rövarspråket!
+Skriv ett program som översätter från svenska till [rövarspråket](https://sv.wikipedia.org/wiki/R%C3%B6varspr%C3%A5ket)!
 
 ## Delmoment
 
+1. Skriv en metod som tar emot en sträng och returnerar strängen översatt till rövarspråket. 
+   
+   Exempelanvändning om metoden heter `translate_to_robber`:
+   ```python
+   text = "hejsan"
+   print(translate_to_robber(text))
+   ```
+   Ska följande skrivas ut i konsollen
+   ```
+    
+    ```
+
 1. Ett program som skriver ut översättningen för en given sträng (eller argument under körning). **Svårighetsgrad 1**.
 
-  ```bash
-  python robber.py Johan
-  Jojohohanon
-  ```
+        ```bash
+        python robber.py Johan
+        Jojohohanon
+        ```
 
 2. Ett program som väntar på input från användaren och skriver ut översättningen tills programmet avslutas. **Svårighetsgrad 1**.
 
