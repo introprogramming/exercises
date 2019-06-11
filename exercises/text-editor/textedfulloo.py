@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import Tkinter as Tk
-import tkFileDialog
-import tkSimpleDialog
-import tkColorChooser
+import tkinter as Tk
+from tkinter import filedialog, simpledialog, colorchooser
 
 
 # An implementation with many features using OOP
@@ -88,7 +86,7 @@ class TextEditor(Tk.Frame):
         self.delete_all_text()
 
     def on_open(self):
-        dialog = tkFileDialog.Open()
+        dialog = filedialog.Open()
         path = dialog.show()
 
         if path != '':
@@ -101,7 +99,7 @@ class TextEditor(Tk.Frame):
         path = self.path
 
         if path == '':
-            dialog = tkFileDialog.SaveAs(defaultextension='txt')
+            dialog = filedialog.SaveAs(defaultextension='txt')
             path = dialog.show()
 
         if path:
@@ -110,7 +108,7 @@ class TextEditor(Tk.Frame):
             self.save_file(self.path, text)
 
     def on_save_as(self):
-        dialog = tkFileDialog.SaveAs(defaultextension='txt')
+        dialog = filedialog.SaveAs(defaultextension='txt')
         path = dialog.show()
 
         if path:
@@ -129,7 +127,7 @@ class TextEditor(Tk.Frame):
 
     # EDIT MENU ACTIONS
     def on_find(self):
-        target = tkSimpleDialog.askstring("Simple Text Editor", "Search for:")
+        target = simpledialog.askstring("Simple Text Editor", "Search for:")
         if target:
             index = self.text_input.search(target, Tk.INSERT, Tk.END)
             if not index:
@@ -149,12 +147,12 @@ class TextEditor(Tk.Frame):
 
     # SETTINGS MENU ACTIONS
     def on_background_color(self):
-        (rgb, hex) = tkColorChooser.askcolor(self.settings['background_color'])
+        (rgb, hex) = colorchooser.askcolor(self.settings['background_color'])
         self.settings['background_color'] = hex
         self.text_input.config(bg=hex)
 
     def on_text_color(self):
-        (rgb, hex) = tkColorChooser.askcolor(self.settings['text_color'])
+        (rgb, hex) = colorchooser.askcolor(self.settings['text_color'])
         self.settings['text_color'] = hex
         self.text_input.config(fg=hex)
 

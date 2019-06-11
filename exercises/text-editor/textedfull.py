@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import Tkinter as Tk
-import tkFileDialog
-import tkSimpleDialog
-import tkColorChooser
+import tkinter as Tk
+from tkinter import filedialog, simpledialog, colorchooser
 
 
 # An implementation with many features without OOP
@@ -61,7 +59,7 @@ def on_new():
 
 def on_open():
     global path
-    dialog = tkFileDialog.Open()
+    dialog = filedialog.Open()
     new_path = dialog.show()
 
     if new_path != '':
@@ -76,7 +74,7 @@ def on_save():
     new_path = path
 
     if new_path == '':
-        dialog = tkFileDialog.SaveAs(defaultextension='txt')
+        dialog = filedialog.SaveAs(defaultextension='txt')
         new_path = dialog.show()
 
     if new_path:
@@ -87,7 +85,7 @@ def on_save():
 
 def on_save_as():
     global path
-    dialog = tkFileDialog.SaveAs(defaultextension='txt')
+    dialog = filedialog.SaveAs(defaultextension='txt')
     new_path = dialog.show()
 
     if new_path:
@@ -107,7 +105,7 @@ def on_exit():
 
 # EDIT MENU ACTIONS
 def on_find():
-    target = tkSimpleDialog.askstring("Simple Text Editor", "Search for:")
+    target = simpledialog.askstring("Simple Text Editor", "Search for:")
     if target:
         index = text_input.search(target, Tk.INSERT, Tk.END)
         if not index:
@@ -129,13 +127,13 @@ def on_select_all():
 
 # SETTINGS MENU ACTIONS
 def on_background_color():
-    (rgb, hex) = tkColorChooser.askcolor(settings['background_color'])
+    (rgb, hex) = colorchooser.askcolor(settings['background_color'])
     settings['background_color'] = hex
     text_input.config(bg=hex)
 
 
 def on_text_color():
-    (rgb, hex) = tkColorChooser.askcolor(settings['text_color'])
+    (rgb, hex) = colorchooser.askcolor(settings['text_color'])
     settings['text_color'] = hex
     text_input.config(fg=hex)
 

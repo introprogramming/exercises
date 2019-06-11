@@ -1,5 +1,5 @@
-import Tkinter as Tk
-import tkFileDialog
+import tkinter as Tk
+from tkinter import filedialog
 
 
 # A minimal implementation, what a solution might look like
@@ -12,7 +12,7 @@ def on_new():
 
 def on_open():
     global path
-    dialog = tkFileDialog.Open()
+    dialog = filedialog.Open()
     new_path = dialog.show()
 
     if new_path != '':
@@ -27,7 +27,7 @@ def on_save():
     new_path = path
 
     if new_path == '':
-        dialog = tkFileDialog.SaveAs(defaultextension='txt')
+        dialog = filedialog.SaveAs(defaultextension='txt')
         new_path = dialog.show()
 
     if new_path:
@@ -38,7 +38,7 @@ def on_save():
 
 def on_save_as():
     global path
-    dialog = tkFileDialog.SaveAs(defaultextension='txt')
+    dialog = filedialog.SaveAs(defaultextension='txt')
     new_path = dialog.show()
 
     if new_path:
