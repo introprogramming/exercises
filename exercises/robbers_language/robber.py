@@ -36,6 +36,7 @@ def is_valid_file(input):
     return os.path.isfile(input) and mimetypes.guess_type(input)[0] == "text/plain"
 
 
+
 def file_contents_from(path):
     """ Fetch file contents from a file at path.
     Returns False if file at path cannot be read.
@@ -45,6 +46,7 @@ def file_contents_from(path):
         return f.read()
     except IOError as e:
         return False
+
 
 
 # Logic
@@ -64,6 +66,7 @@ def add_suffix_if_consonant(inp):
     """Adds a suffix if input is consonant
     """
     return inp + SUFFIX + inp.lower() if is_consonant(inp) else inp
+
 
 
 def cli():
@@ -101,5 +104,7 @@ if __name__ == "__main__":
     # Docstring unit testing
     # import doctest
     # doctest.testmod()
+
+    main()
 
     main()

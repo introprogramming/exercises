@@ -10,7 +10,7 @@ from pyglet.window import key
 # Doesn't work so well with the sample.wav :P
 # Only supports WAV unless one also installs AVBin
 
-file = 'sample2.wav'
+file = 'sample.wav'
 if len(sys.argv)>1:
     file = sys.argv[1]
 
@@ -25,14 +25,15 @@ player.play()
 paused = False
 
 def help():
-    print """\nCommands:
+    print("""\nCommands:
 \tEsc or x \t Exit program
 \tp \t Pause/unpause music
-\th \t See this list again"""
+\th \t See this list again""")
 
-print """Welcome to this music player!
+print("""Welcome to this music player!
 
-You can give a file as an argument or use the commands below."""
+You can give a file as an argument or use the commands below.""")
+
 help()
 
 @window.event
@@ -43,11 +44,11 @@ def on_key_press(symbol, modifiers):
     
     if symbol == key.P:
         if paused:
-            print "Resume"
+            print("Resume")
             player.play()
             paused = False
         else:
-            print "Pause"
+            print("Pause")
             player.pause()
             paused = True
     elif symbol == key.R:
@@ -67,13 +68,13 @@ pyglet.app.exit()
 # - need user input to be useful
 while False:
     if s == "q" or s == "queue":
-        file = raw_input("Add file to queue: ")
+        file = input("Add file to queue: ")
         music = pyglet.resource.media(file)
         player.queue(music)
     elif s == "n" or s == "next":
         player.next()
     elif s == "pl" or s == "play":
-        file = raw_input("Play this file instead: ")
+        file = input("Play this file instead: ")
         music = pyglet.resource.media(file)
         music.play()
     

@@ -23,10 +23,10 @@ def bintodec(bin_str):
 
 if len(sys.argv) > 2:
 	if sys.argv[1] == 'bin':
-		print bintodec(sys.argv[2])
+		print(bintodec(sys.argv[2]))
 	elif sys.argv[1] == 'dec':
-		print dectobin(sys.argv[2])
+		print(dectobin(sys.argv[2]))
 	else:
-		print "Usage: convert.py bin|dec number"
+		print("Usage: convert.py bin|dec number")
 else:
-	print "Usage: convert.py bin|dec number"
+	print("Usage: convert.py bin|dec number")

@@ -11,7 +11,7 @@ ai_difficulty = 3
 
 def read_name(ix):
     """Reads player name from CLI, returns string."""
-    return raw_input( "What is your name (Player" + str(ix) + ")?\n\t")
+    return input( "What is your name (Player" + str(ix) + ")?\n\t")
 
 def start(multiplayer):
     """Sets player names by input or AI, depending on multiplayer or not."""
@@ -31,7 +31,7 @@ def print_sticks(sticks):
         if (ix%5 == 0):
             string += " "
         ix = ix + 1
-    print string
+    print(string)
 
 def play_turn(player_name, sticks):
     """Returns 1 or 2,
@@ -39,9 +39,9 @@ def play_turn(player_name, sticks):
     choice = -1
     while choice != 1 and choice != 2:
         print_sticks(sticks)
-        choice = int(raw_input(player_name + ": pick 1 or 2 sticks?\n\t"))
+        choice = int(input(player_name + ": pick 1 or 2 sticks?\n\t"))
         if choice !=1 and choice != 2:
-            print "Can only pick 1 or 2, not "+str(choice)
+            print("Can only pick 1 or 2, not "+str(choice))
         
     return choice
 
@@ -66,15 +66,15 @@ def ai_turn(sticks):
         string += "s."
     else:
         string += "."
-    print string
+    print(string)
     return choice
 
 def game():
     """Starts a new game of Pick one pick two.
     Makes a 1vsAI game if argument is 'ai', otherwise 1v1."""
     
-    print "Game: Pick one pick two!\n"
-    print "\n-------------------------"
+    print("Game: Pick one pick two!\n")
+    print("\n-------------------------")
     
     multiplayer = True
     if len(sys.argv) > 1 and sys.argv[1]=="ai":
@@ -93,8 +93,8 @@ def game():
             sticks -= play_turn( last_player, sticks )
         turn = turn + 1
     
-    print "\n-------------------------"
-    print last_player + " won!"
+    print("\n-------------------------")
+    print(last_player + " won!")
 
 # Main
 game()
