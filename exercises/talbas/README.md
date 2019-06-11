@@ -7,7 +7,7 @@ Konvertera mellan talbaserna binär och decimal
 ## Delmoment
 
 1. Skapa en funktion som, givet ett binärt tal i strängform, ger dess decimala motsvarighet. *Svårighetsgrad 1*
-2. Skapa en funktion som, givet ett decimalt tal i strängform, ger dess binära motsvarighet. *Svårighetsgrad 1*
+3. Skapa en funktion som, givet ett decimalt tal i strängform, ger dess binära motsvarighet. *Svårighetsgrad 1*
 
 
 ## Utbyggnad
