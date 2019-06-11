@@ -23,40 +23,24 @@ SUFFIX = 'o'
 
 def is_consonant(char):
     """Returns true if char is consonant. False otherwise
-
-  >>> is_consonant('a')
-  False
-  >>> is_consonant('d')
-  True
-  """
+    """
     return char.lower() in CONSONANTS.lower()
 
 
-def is_valid_file(inp):
+def is_valid_file(input):
     """ Returns true if input is a valid text file.
-
-  >>> dir_path = os.path.split(os.path.abspath(__file__))[0]
-  >>> is_valid_file(dir_path + os.path.sep + 'fixtures' + os.path.sep + 'test.txt')
-  True
-  >>> is_valid_file('./bogus')
-  False
-  """
+    """
     # Educational moment: Learn how use google to find about
     # Python's built in helpers for validating a path for a file
     # and checking the file type.
-    return os.path.isfile(inp) and mimetypes.guess_type(inp)[0] == "text/plain"
+    return os.path.isfile(input) and mimetypes.guess_type(input)[0] == "text/plain"
+
 
 
 def file_contents_from(path):
-    ''' Fetch file contents from a file at path.
-  Returns False if file at path cannot be read.
-
-  >>> dir_path = os.path.split(os.path.abspath(__file__))[0]
-  >>> file_contents_from(dir_path + os.path.sep + 'fixtures' + os.path.sep + 'test.txt')
-  'En enkel fil.\\n'
-  >>> file_contents_from('./bogus')
-  False
-  '''
+    """ Fetch file contents from a file at path.
+    Returns False if file at path cannot be read.
+    """
     try:
         f = open(path)
         return f.read()
@@ -64,14 +48,12 @@ def file_contents_from(path):
         return False
 
 
+
 # Logic
 
 def translate(string):
     """Core translation.
-
-  >>> translate('johan')
-  'jojohohanon'
-  """
+    """
     output = ""
 
     for char in string:
@@ -80,20 +62,16 @@ def translate(string):
     return output
 
 
-def add_suffix_if_consonant(input):
+def add_suffix_if_consonant(inp):
     """Adds a suffix if input is consonant
+    """
+    return inp + SUFFIX + inp.lower() if is_consonant(inp) else inp
 
-  >>> add_suffix_if_consonant('j')
-  'joj'
-  >>> add_suffix_if_consonant('a')
-  'a'
-  """
-    return input + SUFFIX + input.lower() if is_consonant(input) else input
 
 
 def cli():
     """ Interactive CLI. Type 'exit' to quit.
-  """
+    """
     print('Type "exit" or press Ctrl+C to leave.')
     inp = _read_input()
 
@@ -110,9 +88,9 @@ def _read_input():
 
 def main():
     if len(sys.argv) == 2 and sys.argv[1] != "":
-        input = sys.argv[1]
+        inp = sys.argv[1]
 
-        out = translate(file_contents_from(input)) if is_valid_file(input) else translate(input)
+        out = translate(file_contents_from(inp)) if is_valid_file(inp) else translate(inp)
 
         print(out)
 
@@ -124,8 +102,9 @@ def main():
 
 if __name__ == "__main__":
     # Docstring unit testing
-    import doctest
+    # import doctest
+    # doctest.testmod()
 
-    doctest.testmod()
+    main()
 
     main()
