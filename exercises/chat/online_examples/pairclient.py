@@ -12,6 +12,6 @@ socket.connect("tcp://localhost:{}".format(port))
 while True:
     msg = socket.recv()
     print(msg)
-    socket.send("client message to server1")
-    socket.send("client message to server2")
+    socket.send_string("client message to server1")
+    socket.send_string("client message to server2")
     time.sleep(1)
