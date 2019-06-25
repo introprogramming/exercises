@@ -1,6 +1,6 @@
-
-import sys
 import datetime
+import sys
+
 
 ########################
 ## Functions
@@ -11,6 +11,7 @@ def clean(string):
     Removes whitespace and hyphen
     """
     return string.replace(" ", "").replace("-", "")
+
 
 def date_is_correct(string):
     """Return True or False
@@ -23,6 +24,7 @@ def date_is_correct(string):
         return False
     return True
 
+
 def string_to_int_list(string):
     """Return list of integers
     
@@ -30,8 +32,8 @@ def string_to_int_list(string):
     '1234' -> [1,2,3,4]
     """
     return map(int, list(string))
-    
-    
+
+
 def number_is_correct(pnr):
     """Returns True or False
     
@@ -39,16 +41,17 @@ def number_is_correct(pnr):
     """
     factor = 2
     c = 0
-    for x in pnr :
-        c = c + x*factor
-        if(x*factor > 9):
-            c = c -9
-        
+    for x in pnr:
+        c = c + x * factor
+        if (x * factor > 9):
+            c = c - 9
+
         if factor == 2:
             factor = 1
-        else :
+        else:
             factor = 2
     return c % 10 == 0
+
 
 def check(str):
     """Returns (True/False, Explanation)
@@ -59,7 +62,7 @@ def check(str):
 
     if len(cleaned) != 10:
         return (False, 'The personal number must include ten digits')
-    
+
     if not date_is_correct(cleaned):
         return (False, 'Error in date')
 
@@ -67,6 +70,7 @@ def check(str):
         return (False, 'Error in control number')
 
     return (True, 'Congratulations, the number is correct')
+
 
 ########################
 ## Main
