@@ -1,5 +1,5 @@
 # Yatzy
-Det klassiska tärningsspelet Yatzy med 5 tärningar för `N` spelare.
+Det klassiska tärningsspelet [Yatzy](https://en.wikipedia.org/wiki/Yatzy) med 5 tärningar för `N` spelare.
 
 - **Svårighetsgrad:** 2
 
@@ -11,7 +11,7 @@ Det klassiska tärningsspelet Yatzy med 5 tärningar för `N` spelare.
 
 ## Utbyggnad
 * Implementera andra poängregler som kåk, stege etc. **Svårighetsgrad 2**.
-* Grafisk ASCII representation av tärningar. **Svårighetsgrad 2**.
+* Grafisk representation av tärningar (exempelvis ASCII). **Svårighetsgrad 2**.
 
 ## Externa bibliotek
 * (inga)

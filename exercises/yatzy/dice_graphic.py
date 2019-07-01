@@ -1,5 +1,4 @@
 
-
 dice_graph = {}
 dice_graph['1_top'] = {}
 dice_graph['2_mid'] = {}
@@ -36,10 +35,10 @@ def print_dice(list):
     string = ""
     for ix in list:
         string += " _____ " + spacing
-    print string
+    print(string)
     
     for key in dice_graph.values():
         string = ""
         for ix in list:
             string += key[str(ix)] + spacing
-        print string
+        print(string)

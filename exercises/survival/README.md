@@ -1,6 +1,6 @@
 # Survival game
 
-2d shooter spel: överlev mot monster så länge som möjligt. Du har vapen och (o)begränsad ammunition. Spelet kan givetvis anpassas så att det blir precis som man vill. Det här är tänkt att spelas med tangentbord och mus. Perspektivet är tänkt som rakt uppifrån.
+2d shooter spel: överlev mot monster så länge som möjligt. Du har vapen och (o)begränsat med ammunition. Spelet kan givetvis anpassas så att det blir precis som man vill. Det här är tänkt att spelas med tangentbord och mus. Perspektivet är tänkt som rakt uppifrån.
 
 **Koncept:** Grafik, objekt-orientering, polymorfism
 
@@ -9,23 +9,20 @@
 ## Tips
 **OBS!** Det här är en uppgift av den större och svårare typen. Börja otroligt enkelt först och få det att fungera. Bygg ut det fungerande programmet successivt tills det är så coolt som ni vill ha det.
 
-Exempel kan vara bra för att komma igång, bäst lär man sig dock genom att göra själv. Använd gärna [detta](http://programarcadegames.com/index.php?chapter=introduction_to_sprites) exempel som utgångspunkt. Ni kan även se andra exempel [online](http://www.pygame.org/docs/tut/intro/intro.html) eller i Pygame mappen:  
-`C:\Python27\Lib\site-packages\pygame\examples`.
+Exempel kan vara bra för att komma igång, bäst lär man sig dock genom att göra själv. Använd gärna [detta](http://programarcadegames.com/index.php?chapter=introduction_to_sprites) exempel som utgångspunkt. Ni kan även se andra exempel [online](https://www.pygame.org/tags/all) eller i pygames installationsmap på datorn.
 
-Tänk på att det inte är viktigt hur sprites:en (.png-bilderna) ser ut, rita dem väldigt enkelt i Paint eller motsvarande och lägg istället tiden på att få allt att fungera. När spelet är färdigt kan ni skaffa snygga bilder.
-
-**OBS!** På Chalmers linux-datorer saknas vissa dependencies till pygame vilket medför att den endast stödjer .bmp-bilder. Detta är relevant att tänka på om ni skulle få felmeddelandet:  
-`pygame.error: File is not a Windows BMP file`.
+Tänk på att det inte är viktigt hur sprites:en (.png-bilderna) ser ut, rita dem väldigt enkelt i Paint/Gimp eller motsvarande och lägg istället tiden på att få allt att fungera. När spelet är färdigt kan ni skaffa snygga bilder.
 
 ## Delmoment
 
-0. Skapa ett fönster och en update-loop som ritar om fönstret efter 1/60 sekunder. Varje iteration är en s.k. **frame**.
-1. Skapa en egen klass `GraphObject` som [ärver](http://en.wikibooks.org/wiki/A_Beginner's_Python_Tutorial/Classes#Inheritance) `pygame.sprite.Sprite` Skapa en funktion update(self, time) som anropas i varje frame.
+0. Skapa ett fönster och en update-loop som ritar om fönstret efter 1/6
+0 sekunder. Varje iteration är en s.k. **frame**.
+1. Skapa en egen klass `GraphObject` som [ärver](http://en.wikibooks.org/wiki/A_Beginner's_Python_Tutorial/Classes#Inheritance) av `pygame.sprite.Sprite` Skapa i `GraphObject` en funktion `update(self, time)` som anropas i varje frame.
 2. Rita ut några objekt mha `g = pygame.sprite.Group()` och `g.draw(screen)`.
-2. Gör en klass för spelaren som ärver `GraphObject` och skapa ett objekt av denna som utgör spelaren. Skapa i denna klass en ny metod `update(self,time)` som även kallar på `GraphObject.update(self,time)`. Detta är ett exempel på [**polymorfism**](http://stackoverflow.com/questions/3724110/practical-example-of-polymorphism).
+2. Gör en klass för spelaren som ärver `GraphObject` och skapa ett objekt av denna som utgör spelaren. Skapa i denna klass en ny metod `update(self,time)` som även kallar på `GraphObject.update(self,time)`. Detta är ett exempel på [**polymorfism**](https://sv.wikipedia.org/wiki/Polymorfism_(objektorienterad_programmering).
 3. I update-loopen: fånga upp indata genom `pygame.event.get()`. Låt spelaren flytta på sig när man använder pil-tangenterna. Avbryt loopen om `pygame.QUIT` eller Escape matas in.
 3. Flytta *kameran* då spelaren rör sig. Detta kan göras på flera sätt, exempelvis genom att man har en Board klass som håller koll på var kameran är. För att se att kameran faktiskt rör sig så är det lämpligt att rita ut några *stillastående* objekt också. Dessa kan senare ersättas med exempelvis bilder av gräs.
-4. Skapa en projektil-klass som ärver `GraphObject`. Då du klickar på Space eller vänster musknapp ska en projektil flyga iväg åt det hållet du har muspekaren.
+4. Skapa en projektil-klass som ärver `GraphObject`. Då du klickar på Space eller vänster musknapp ska en projektil flyga iväg (från spelaren) åt det hållet du har muspekaren.
 4. Skapa en monster-klass som ärver `GraphObject`. Rita ut några monster då spelet startas.
 5. Beräkna [kollisioner](http://www.pygame.org/docs/tut/SpriteIntro.html) mha `pygame.sprite.groupcollide()` eller `pygame.sprite.spritecollide()`. Då ett monster träffas av en projektil ska han ta skada och eller dö. Om spelaren kolliderar med ett monster ska spelaren ta skada och eller dö. Se guider ovan under **Tips** för hjälp med kollisionshantering.
 6. Skapa nya monster med jämna mellanrum och eller när ett monster dör. Placera ut dem på slumpade positioner.

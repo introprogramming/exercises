@@ -51,7 +51,7 @@ def recurse_print(path, prefix, file_reg, dir_reg):
         f_path = join(path, f)
         if isdir(f_path):
             if not dir_reg.search(f) :
-                print "Dir regex didn't match", f
+                print("Dir regex didn't match", f)
                 continue
             
             (string, [f_size, sub_list]) = recurse_print(f_path, prefix+"    ", file_reg, dir_reg)
@@ -61,7 +61,7 @@ def recurse_print(path, prefix, file_reg, dir_reg):
             complete_string += prefix+string
         else :
             if not file_reg.search(f) :
-                print "File regex didn't match", f
+                print("File regex didn't match", f)
                 continue
             f_size = file_size(path, f)
             complete_list.append((f, f_size))
@@ -76,8 +76,8 @@ def dir_print_contents(path, file_reg, dir_reg):
     
     This implementation uses function recursion."""
     (string, [sumsize, sub_list]) = recurse_print(path, "", file_reg, dir_reg)
-    print "\n"+str_format(path + os.path.sep, sumsize)
-    print string
+    print("\n"+str_format(path + os.path.sep, sumsize))
+    print(string)
 
 def experiment():
     """Just for experimenting on regex."""
@@ -86,15 +86,15 @@ def experiment():
     
     for s in strings:
         if reg.search(s):
-            print "Matches", s
+            print("Matches", s)
         else:
-            print "No match", s
+            print("No match", s)
 
 def help_format(option, text):
     return "\n\t{0:<15}{1}".format(option, text)
 
 def print_help():
-    print """Printdir2
+    print("""Printdir2
     This is a program for printing of files and calculating the sizes of directories.
 
     Is called by typing `python printdir2.py [path] [options]`.
@@ -102,7 +102,7 @@ def print_help():
     Options:""" +\
     help_format("-h", "Print this help and abort.") +\
     help_format("-f <regex>", "Only consider files matching this regex.") +\
-    help_format("-r <regex>", "Only consider directories matching this regex.")
+    help_format("-r <regex>", "Only consider directories matching this regex."))
     
     
 def main():
@@ -134,10 +134,10 @@ def main():
             path = sys.argv[ix]
         ix = ix+1
     
-    print "File reg: " + repr(file_reg)
-    print "Dir reg: " + repr(dir_reg)
+    print("File reg: " + repr(file_reg))
+    print("Dir reg: " + repr(dir_reg))
     
-    print "\nIn ", path, ":"
+    print("\nIn ", path, ":")
     dir_print_contents(path, re.compile(file_reg), re.compile(dir_reg))
 
 main()

@@ -10,8 +10,8 @@ Eftersom att OpenGL bygger på Klient/Server interaktion kommer den delen av upp
 **Koncept**: Grafik, API, algorithmimplementation, programstrukturering
 
 **Externa Bibliotek**:
- - Grafik [PyOpenGL](https://pypi.python.org/pypi/PyOpenGL)
- - Bilder [PIL](http://www.pythonware.com/products/pil/)
+ - Grafik [PyOpenGL](http://pyopengl.sourceforge.net/)
+ - Bilder [Pillow](https://python-pillow.org/) ([Dokumentation](https://pillow.readthedocs.io/en/stable/))
 
 - **Svårighetsgrad:** 3
 
@@ -52,7 +52,7 @@ Vi behöver ange vad det skapta fönstret skall göra under dess olika tillstån
 	glutIdleFunc( *function()* )
 ```
 
-Funktionen som ges till *glutReshapeFunc* kommer att exekveras då fönstret byter storlek. *glutDisplayFunc* kallas när fönstret behöver ritas om. *glutIdleFunc* genomförs när inget annat exekveras. Det finns många fler tillstånd att binda funktioner till, men dessa kan hittas i [GLUTs egna dokumentation](https://www.opengl.org/resources/libraries/glut/).
+Funktionen som ges till *glutReshapeFunc* kommer att exekveras då fönstret byter storlek. *glutDisplayFunc* kallas när fönstret behöver ritas om. *glutIdleFunc* genomförs när inget annat exekveras. Det finns många fler tillstånd att binda funktioner till, men dessa kan hittas i [dokumentationen för freeglut](http://freeglut.sourceforge.net/).
 
 Ett tips är att binda renderingsfunctionen även till *glutIdleFunc* för att få konternuerlig uppdatering av fönstret. Går renderingen av någon anledning för fort kan nu läsa om *time* modulens *sleep( secs )* function.
 

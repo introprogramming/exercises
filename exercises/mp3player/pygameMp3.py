@@ -10,22 +10,23 @@ pygame.mixer.music.load(file)
 pygame.mixer.music.play(0)
 
 def help():
-    print """\nCommands:
+    print("""\nCommands:
 \tend or exit \t Exit program
 \tr or rewind \t Play from the start
 \tp or pause \t Pause/unpause music
 \ts or stop \t Stop playing this one
 \tpl or play \t Play this file
-\th or help \t See this list again"""
+\th or help \t See this list again""")
 #\tq or queue \t Add music to queue
 
-print """Welcome to this music player!
 
-You can give a file as an argument or use the commands below."""
+print("""Welcome to this music player!
+
+You can give a file as an argument or use the commands below.""")
 help()
 
 # Listen for user input
-s=raw_input()
+s=input()
 paused = False
 while s!="end" and s!="exit":
     if s == "r" or s == "rewind":
@@ -46,7 +47,7 @@ while s!="end" and s!="exit":
     elif s == "s" or s == "stop":
         pygame.mixer.music.stop()
     elif s == "pl" or s == "play":
-        file = raw_input("Play this file instead: ")
+        file = input("Play this file instead: ")
         pygame.mixer.music.load(file)
         pygame.mixer.music.play(0)
     elif s == "h" or s == "help":
@@ -54,5 +55,5 @@ while s!="end" and s!="exit":
     elif s == "":
         pass
     else:
-        print "I don't understand what you mean with '"+s+"'. Type `h` or `help` to see a list of commands."
-    s=raw_input()
+        print("I don't understand what you mean with '"+s+"'. Type `h` or `help` to see a list of commands.")
+    s=input()

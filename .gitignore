@@ -3,3 +3,6 @@
 
 #Compiled python
 *.pyc
+
+#Pycharm idea folder
+.idea/
